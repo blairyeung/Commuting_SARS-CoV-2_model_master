@@ -25,7 +25,7 @@ public class Vaccine_allocation {
                 break;
             case 1:
                 /**
-                 * Prioriti ze Young people
+                 * Prioritize Young people
                  */
                 Total_vaccine = 100000.0;
                 Vaccine_allocation_case_1();

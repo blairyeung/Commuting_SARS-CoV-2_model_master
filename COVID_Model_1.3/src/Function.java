@@ -1,3 +1,6 @@
+import javax.swing.text.Segment;
+import java.util.ArrayList;
+
 public class Function {
     public static void main(String[] args) {
         for (int i = 0; i < 24; i++) {
@@ -71,7 +74,7 @@ public class Function {
     public static int[] RandomAssignArr(double[] Probabilities, int Total){
 
         /**
-         * 优化效率
+         * Efficiency optimization required
          */
 
         int[] Return_arr = new int[Probabilities.length];
@@ -83,9 +86,9 @@ public class Function {
             double Generated_rad = Math.random();
             double Iterated = 0;
 
-            for (int Index = 0; Index < Normalized_Probabilities.length; Index++) {
+            /*for (int Index = 0; Index < Normalized_Probabilities.length; Index++) {
                 //System.out.println(CountyDataIO.Counties[Index].getName() + Normalized_Probabilities[Index]);
-            }
+            }*/
 
             for (int Index = 0; Index < Normalized_Probabilities.length; Index++) {
                 //System.out.println(Normalized_Probabilities[Index]);
@@ -102,5 +105,38 @@ public class Function {
         return Return_arr;
     }
 
+    public static int Comma_count(String input){
+        int count = 0;
+        //String copy = input;
+        while (input.contains(",")){
+            input = input.substring(input.indexOf(",")+1);
+            count++;
+        }
+        System.out.println(count);
+        return count;
+    }
 
+    public static String[] Stratification(String input){
+        /**
+         * This will first detect the number of elements, takes longer but it is more flexible
+         */
+        return null;
+    }
+
+
+    public static String[] Stratification(String input, int length){
+        /**
+         * Overrides the previous one, no detection thus runs much faster
+         */
+
+        String[] returned = new String[length];
+
+        for (int elm = 0; elm < length-1; elm++) {
+            String Segment = input.substring(0,input.indexOf(","));
+            input = input.substring(input.indexOf(",")+1);
+            returned[elm] = Segment;
+        }
+
+        return returned;
+    }
 }
