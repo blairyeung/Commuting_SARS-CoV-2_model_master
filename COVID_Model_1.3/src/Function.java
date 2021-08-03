@@ -120,11 +120,13 @@ public class Function {
         /**
          * This will first detect the number of elements, takes longer but it is more flexible
          */
+
         return null;
     }
 
 
     public static String[] Stratification(String input, int length){
+
         /**
          * Overrides the previous one, no detection thus runs much faster
          */

@@ -64,12 +64,17 @@ public class Ontario_past_data_IO {
 
             if(!str.contains("Undisclosed_or_missing")&&!str.contains("plus")){
                 /**Excl the data that does not contain age information*/
-                System.out.println(str);
+                //System.out.println(str);
                 String[] Stratified = Function.Stratification(str,Length);
                 String date = Stratified[0];
                 String age_group = Stratified[1];
                 String one_dose = Stratified[2];
                 String two_dose = Stratified[3];
+                System.out.print("Date:  " + date + "  ");
+                System.out.print("Age:  " + age_group + "  ");
+                System.out.print("One dose:  " + one_dose + "  ");
+                System.out.println("Two dose:  " + two_dose + "  ");
+                //Vaccniated_by_age_band;
             }
 
         }
