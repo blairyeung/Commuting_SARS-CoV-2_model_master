@@ -141,4 +141,19 @@ public class Function {
 
         return returned;
     }
+
+    public static int index_of_object_in_array(Object target, Object[] Array){
+        for (int i = 0; i < Array.length; i++) {
+            Object o = Array[i];
+            if(o.equals(target)){
+                return i;
+            }
+        }
+        return -1;
+        /*for(Object o: Array){
+            if(o.equals(target)){
+                return
+            }
+        }*/
+    }
 }
