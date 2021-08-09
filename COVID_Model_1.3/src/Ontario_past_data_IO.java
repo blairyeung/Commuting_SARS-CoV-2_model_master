@@ -86,7 +86,6 @@ public class Ontario_past_data_IO {
                 if(!Date_index.contains(date)){
                     Date_index.add(date);
                     Ontario_data.add(new Data_from_file(date));
-                    //Data_from_file data = new Data_from_file(date);
                 }
 
                 String age_group = Stratified[1];
@@ -100,8 +99,13 @@ public class Ontario_past_data_IO {
                 int index = Date_index.indexOf(date);
                 Ontario_data.get(index).setPercentage_vaccinated_one_dose_by_age(one_dose,age_group_index);
                 Ontario_data.get(index).setPercentage_vaccinated_two_dose_by_age(two_dose,age_group_index);
-                //Vaccniated_by_age_band[Function.index_of_object_in_array(age_group,Age_band_name)].add(new double[]{one_dose,two_dose});
             }
+        }
+
+        for(Data_from_file d: Ontario_data){
+            System.out.print("Date: " + d.getDate());
+            System.out.print("1. : " + d.getPercentage_vaccinated_one_dose(0));
+            System.out.print("2. : " + d.getPercentage_vaccinated_two_dose(0));
         }
     }
 

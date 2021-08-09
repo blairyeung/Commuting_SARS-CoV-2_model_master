@@ -83,6 +83,18 @@ public class Data_from_file {
     public void setPercentage_vaccinated_two_dose_by_age(double percentage_vaccinated_two_dose, int Age_Band) {
         Percentage_vaccinated_two_dose[Age_Band] = percentage_vaccinated_two_dose;
     }
+    public Date getDate() {
+        return date;
+    }
+
+    public double getPercentage_vaccinated_one_dose(int Age_band) {
+        return Percentage_vaccinated_one_dose[Age_band];
+    }
+
+
+    public double getPercentage_vaccinated_two_dose(int Age_band) {
+        return Percentage_vaccinated_two_dose[Age_band];
+    }
 
     public void Adjust_data_PHU(){
         /**
