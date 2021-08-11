@@ -110,6 +110,17 @@ public class Ontario_past_data_IO {
     }
 
     public static void Incidence_data_IO(){
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+
+        for (int age_band = 0; age_band < Age_band_name.length; age_band++) {
+            Vaccniated_by_age_band[age_band] = new ArrayList<Double[]>();
+        }
+
+        ArrayList<String> vaccination_list = new ArrayList<>();
+        ArrayList<String> status_list = new ArrayList<>();
+
+        String Path = Parameters.ReadPath + "vaccines_by_age.csv";
+        System.out.println(Path);
 
     }
 
