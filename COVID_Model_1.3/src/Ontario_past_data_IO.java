@@ -104,8 +104,8 @@ public class Ontario_past_data_IO {
 
         for(Data_from_file d: Ontario_data){
             System.out.print("Date: " + d.getDate());
-            System.out.print("1. : " + d.getPercentage_vaccinated_one_dose(0));
-            System.out.print("2. : " + d.getPercentage_vaccinated_two_dose(0));
+            System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(0));
+            System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
         }
     }
 
