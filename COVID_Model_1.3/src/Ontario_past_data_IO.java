@@ -25,7 +25,7 @@ public class Ontario_past_data_IO {
     }
 
     public static void Ontario_Data_Input(){
-        Vaccination_data_IO();
+        //Vaccination_data_IO();
         Incidence_data_IO();
         to_County();
     }
@@ -108,7 +108,7 @@ public class Ontario_past_data_IO {
             System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
         }
     }
-
+    
     public static void Incidence_data_IO(){
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
 
