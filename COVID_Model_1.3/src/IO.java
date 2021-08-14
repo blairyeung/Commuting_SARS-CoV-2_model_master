@@ -170,7 +170,67 @@ public class IO{
             Immunity_wane_mild.add(Double.parseDouble(Mild_str));
             Immunity_wane_severe.add(Double.parseDouble(Severe_str));
         }
-
     }
+
+    public ArrayList<String> Buffered_read(String Path){
+
+        ArrayList<String> Lines = new ArrayList<>();
+
+        FileReader read = null;
+        try {
+            read = new FileReader(Path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader buffread = new BufferedReader(read);
+
+        String str = null;
+
+        while (true) {
+            try {
+                if (!((str = buffread.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Lines.add(str);
+        }
+
+        return Lines;
+    }
+
+    public ArrayList<String> Buffered_read(String Path, boolean Remove_first_line){
+
+        ArrayList<String> Lines = new ArrayList<>();
+
+        FileReader read = null;
+        try {
+            read = new FileReader(Path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader buffread = new BufferedReader(read);
+
+        String str = null;
+
+        if(Remove_first_line){
+            try {
+                str = buffread.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        while (true) {
+            try {
+                if (!((str = buffread.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Lines.add(str);
+        }
+
+        return Lines;
+    }
+
 }
    
