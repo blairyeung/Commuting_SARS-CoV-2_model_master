@@ -26,7 +26,10 @@ public class Ontario_past_data_IO {
     }
 
     public static void Ontario_Data_Input(){
-        //Vaccination_data_IO();
+        CountyDataIO.CountyData_IO_Input();
+        PHU.PHU_IO_Input();
+
+        Vaccination_data_IO();
         Incidence_data_IO();
         to_County();
     }
@@ -139,7 +142,7 @@ public class Ontario_past_data_IO {
             e.printStackTrace();
         }
 
-        System.out.println(str);
+        //System.out.println(str);
 
         int Length = Function.Comma_count(str);
 
@@ -150,9 +153,7 @@ public class Ontario_past_data_IO {
                 e.printStackTrace();
             }
 
-            if(!str.contains("Undisclosed_or_missing")&&!str.contains("plus")){
-                /**Excl the data that does not contain age information*/
-                //System.out.println(str);
+            if(!Ontario_data.isEmpty()){
                 String[] Stratified = Function.Stratification(str,Length);
                 Date date = null;
 
@@ -167,24 +168,65 @@ public class Ontario_past_data_IO {
                     Ontario_data.add(new Data_from_file(date));
                 }
 
-                String age_group = Stratified[1];
-                int age_group_index = Function.index_of_object_in_array(Stratified[1],Age_band_name);
-                double one_dose = Double.parseDouble(Stratified[2]);
-                double two_dose = Double.parseDouble(Stratified[3]);
-                System.out.print("Date:  " + date + "  ");
-                System.out.print("Age:  " + age_group + "  ");
-                System.out.print("One dose:  " + one_dose + "  ");
-                System.out.println("Two dose:  " + two_dose + "  ");
+                String PHU_code = Stratified[1];
+
+                if(PHU_code.isEmpty()){
+                    continue;
+                }
+
+                String[] PHU_List = PHU.PHUs;
+                System.out.println(PHU_code);
+                System.out.println(PHU_List[0]);
+
+                int PHU_index = Function.index_of_object_in_array(PHU_code,PHU_List);
+
+                System.out.println(PHU_index);
+
                 int index = Date_index.indexOf(date);
-                Ontario_data.get(index).setPercentage_vaccinated_one_dose_by_age(one_dose,age_group_index);
-                Ontario_data.get(index).setPercentage_vaccinated_two_dose_by_age(two_dose,age_group_index);
+                Ontario_data.get(index).setUnadjusted_cases_by_PHU(Integer.parseInt(Stratified[3]),index);
+                Ontario_data.get(index).setUnadjusted_resolved_by_PHU(Integer.parseInt(Stratified[4]),index);
+                Ontario_data.get(index).setUnadjusted_deaths_by_PHU(Integer.parseInt(Stratified[5]),index);
+                Ontario_data.get(index).adjust_data();
             }
+
+            /*else {
+                if(!str.contains("Undisclosed_or_missing")&&!str.contains("plus")){
+                    //System.out.println(str);
+                    String[] Stratified = Function.Stratification(str,Length);
+                    Date date = null;
+
+                    try {
+                        date = date_format.parse(Stratified[0]);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    if(!Date_index.contains(date)){
+                        Date_index.add(date);
+                        Ontario_data.add(new Data_from_file(date));
+                    }
+
+                    String age_group = Stratified[1];
+                    int age_group_index = Function.index_of_object_in_array(Stratified[1],Age_band_name);
+                    double one_dose = Double.parseDouble(Stratified[2]);
+                    double two_dose = Double.parseDouble(Stratified[3]);
+                    System.out.print("Date:  " + date + "  ");
+                    System.out.print("Age:  " + age_group + "  ");
+                    System.out.print("One dose:  " + one_dose + "  ");
+                    System.out.println("Two dose:  " + two_dose + "  ");
+                    int index = Date_index.indexOf(date);
+                    Ontario_data.get(index).setPercentage_vaccinated_one_dose_by_age(one_dose,age_group_index);
+                    Ontario_data.get(index).setPercentage_vaccinated_two_dose_by_age(two_dose,age_group_index);
+                }
+            }*/
+
+
         }
 
         for(Data_from_file d: Ontario_data){
             System.out.print("Date: " + d.getDate());
-            System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(0));
-            System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
+            //System.out.print("    Case: " + d.(0));
+            System.out.println("    Death: " + d.getPercentage_vaccinated_two_dose(0));
         }
 
     }

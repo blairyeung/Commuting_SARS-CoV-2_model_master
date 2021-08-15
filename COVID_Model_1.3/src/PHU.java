@@ -59,6 +59,12 @@ public class PHU {
             Division_by_PHU[PHUs_list.indexOf(PHU_name)].add(code);
         }
 
+        PHUs = new String[PHUs_list.size()];
+
+        for (int i = 0; i < PHUs_list.size(); i++) {
+            PHUs[i] = PHUs_list.get(i);
+        }
+
         for (int i = 0; i < PHU_by_Division.length; i++) {
             System.out.print(CountyDataIO.DistrictCodes[i]+",");
             System.out.println(PHUs_list.get(PHU_by_Division[i]));

@@ -24,13 +24,13 @@ public class Data_from_file {
 
     private int[] Unadjusted_cases_by_PHU;
     private int[] Unadjusted_deaths_by_PHU;
-    private int[] Unadjusted_new_cases_by_PHU;
+    private int[] Unadjusted_resolved_by_PHU;
     private double[] Percentage_vaccinated_one_dose;
     private double[] Percentage_vaccinated_two_dose;
 
     public int[] Adjusted_cases_by_PHU;
     public int[] Adjusted_deaths_by_PHU;
-    public int[] Adjusted_new_cases_by_PHU;
+    public int[] Adjusted_resolved_by_PHU;
 
     public static void main(String[] args) {
 
@@ -60,6 +60,11 @@ public class Data_from_file {
         Percentage_vaccinated_two_dose = new double[Age_band_count];
     }*/
 
+    /**
+     * @param unadjusted_cases_by_PHU
+     * @param PHU_index
+     */
+
     public void setUnadjusted_cases_by_PHU(int unadjusted_cases_by_PHU,int PHU_index) {
         Unadjusted_cases_by_PHU[PHU_index] = unadjusted_cases_by_PHU;
     }
@@ -68,6 +73,15 @@ public class Data_from_file {
         Unadjusted_deaths_by_PHU[PHU_index] = unadjusted_deaths_by_PHU;
     }
 
+    public void setUnadjusted_resolved_by_PHU(int unadjusted_resolved_by_PHU,int PHU_index) {
+        Unadjusted_resolved_by_PHU[PHU_index] = unadjusted_resolved_by_PHU;
+    }
+
+    /**
+     * @param adjusted_cases_by_PHU
+     * @param PHU_index
+     */
+
     private void setAdjusted_cases_by_PHU(int adjusted_cases_by_PHU,int PHU_index) {
         Adjusted_cases_by_PHU[PHU_index] = adjusted_cases_by_PHU;
     }
@@ -75,6 +89,15 @@ public class Data_from_file {
     private void setAdjusted_deaths_by_PHU(int adjusted_deaths_by_PHU,int PHU_index) {
         Adjusted_deaths_by_PHU[PHU_index] = adjusted_deaths_by_PHU;
     }
+
+    private void setAdjusted_resolved_by_PHU(int adjusted_resolved_by_PHU,int PHU_index) {
+        Adjusted_resolved_by_PHU[PHU_index] = adjusted_resolved_by_PHU;
+    }
+
+    /**
+     * @param percentage_vaccinated_one_dose
+     * @param Age_Band
+     */
 
     public void setPercentage_vaccinated_one_dose_by_age(double percentage_vaccinated_one_dose, int Age_Band) {
         Percentage_vaccinated_one_dose[Age_Band] = percentage_vaccinated_one_dose;
@@ -87,25 +110,51 @@ public class Data_from_file {
         return date;
     }
 
-    public double getPercentage_vaccinated_one_dose(int Age_band) {
-        return Percentage_vaccinated_one_dose[Age_band];
-    }
-
-
-    public double getPercentage_vaccinated_two_dose(int Age_band) {
-        return Percentage_vaccinated_two_dose[Age_band];
-    }
-
-    public void Adjust_data_PHU(){
-        /**
-         * Assumed underacertainment ratio of number of cases/deaths
-         */
+    public void adjust_data(){
         double Underacertainment_case = 0.3;
         double Underacertainment_death = 0.1;
 
         double Adjust_ratio_case = 1 + Underacertainment_case;
         double Adjust_ratio_death = 1 + Underacertainment_death;
 
+        for (int PHU_code = 0; PHU_code < Adjusted_cases_by_PHU.length; PHU_code++) {
+            Adjusted_cases_by_PHU[PHU_code] = (int) ((double) Unadjusted_cases_by_PHU[PHU_code] * Adjust_ratio_case);
+            Adjusted_deaths_by_PHU[PHU_code] = (int) ((double)Unadjusted_deaths_by_PHU[PHU_code] * Adjust_ratio_death);
+        }
+    }
+
+    /**
+     * @param Age_band
+     * @return vaccinated
+     */
+
+    public double getPercentage_vaccinated_one_dose(int Age_band) {
+        return Percentage_vaccinated_one_dose[Age_band];
+    }
+
+    public double getPercentage_vaccinated_two_dose(int Age_band) {
+        return Percentage_vaccinated_two_dose[Age_band];
+    }
+
+    /**
+     * @param PHU_index
+     * @return
+     */
+
+    public int getAdjusted_cases_by_PHU(int PHU_index) {
+        return Adjusted_cases_by_PHU[PHU_index];
+    }
+
+    public int getAdjusted_deaths_by_PHU(int PHU_index) {
+        return Adjusted_deaths_by_PHU[PHU_index];
+    }
+
+    public int getUnadjusted_cases_by_PHU(int PHU_index) {
+        return Unadjusted_cases_by_PHU[PHU_index];
+    }
+
+    public int getUnadjusted_deaths_by_PHU(int PHU_index) {
+        return Unadjusted_deaths_by_PHU[PHU_index];
     }
 
 }
