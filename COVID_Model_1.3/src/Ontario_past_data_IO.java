@@ -220,11 +220,17 @@ public class Ontario_past_data_IO {
             Ontario_data.get(i).adjust_data();
         }
 
+        Sort(Ontario_data);
+
 
         for(Data_from_file d: Ontario_data){
             System.out.println("Date: " + d.getDate());
-            System.out.print("One Dose: " + d.getPercentage_vaccinated_one_dose(0));
-            System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
+            for (int i = 0; i < Age_band_name.length; i++) {
+                System.out.print("Age_band: " + Age_band_name[i]);
+                System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(0));
+                System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
+            }
+
             for (int i = 0; i < PHU.PHUs_list.size(); i++) {
                 System.out.print("PHU: " + PHU.PHUs_list.get(i));
                 System.out.print("    Case: " + d.getAdjusted_cases_by_PHU(i));
@@ -233,10 +239,18 @@ public class Ontario_past_data_IO {
             }
         }
 
+
     }
 
     public static void to_County(){
 
 
+    }
+
+    public static ArrayList<Data_from_file> Sort(ArrayList<Data_from_file> dateList){
+            dateList.sort((a1, a2) -> {
+                return a1.getDate().compareTo(a2.getDate());
+            });
+            return dateList;
     }
 }
