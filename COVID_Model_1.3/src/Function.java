@@ -112,7 +112,6 @@ public class Function {
             input = input.substring(input.indexOf(",")+1);
             count++;
         }
-        System.out.println(count);
         return count;
     }
 
@@ -133,11 +132,13 @@ public class Function {
 
         String[] returned = new String[length];
 
-        for (int elm = 0; elm < length-1; elm++) {
+        for (int elm = 0; elm < length - 1; elm++) {
             String Segment = input.substring(0,input.indexOf(","));
             input = input.substring(input.indexOf(",")+1);
             returned[elm] = Segment;
         }
+
+        returned[length-1] = input;
 
         return returned;
     }

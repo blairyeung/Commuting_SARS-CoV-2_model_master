@@ -47,8 +47,10 @@ public class Data_from_file {
 
         Unadjusted_cases_by_PHU = new int[PHU_count];
         Unadjusted_deaths_by_PHU = new int[PHU_count];
+        Unadjusted_resolved_by_PHU = new int[PHU_count];
         Adjusted_cases_by_PHU = new int[PHU_count];
         Adjusted_deaths_by_PHU = new int[PHU_count];
+        Adjusted_resolved_by_PHU = new int[PHU_count];
     }
 
     /*public Data_from_file(int PHU_count, int Age_band_count){
@@ -120,6 +122,7 @@ public class Data_from_file {
         for (int PHU_code = 0; PHU_code < Adjusted_cases_by_PHU.length; PHU_code++) {
             Adjusted_cases_by_PHU[PHU_code] = (int) ((double) Unadjusted_cases_by_PHU[PHU_code] * Adjust_ratio_case);
             Adjusted_deaths_by_PHU[PHU_code] = (int) ((double)Unadjusted_deaths_by_PHU[PHU_code] * Adjust_ratio_death);
+            Adjusted_resolved_by_PHU[PHU_code] = (int) ((double)Unadjusted_resolved_by_PHU[PHU_code] * Adjust_ratio_case);
         }
     }
 
@@ -149,12 +152,49 @@ public class Data_from_file {
         return Adjusted_deaths_by_PHU[PHU_index];
     }
 
+    public int getAdjusted_resolved_by_PHU(int PHU_index) {
+        return Adjusted_resolved_by_PHU[PHU_index];
+    }
+
     public int getUnadjusted_cases_by_PHU(int PHU_index) {
         return Unadjusted_cases_by_PHU[PHU_index];
     }
 
     public int getUnadjusted_deaths_by_PHU(int PHU_index) {
         return Unadjusted_deaths_by_PHU[PHU_index];
+    }
+
+    public int getUnadjusted_resolved_by_PHU(int PHU_index) {
+        return Unadjusted_resolved_by_PHU[PHU_index];
+    }
+
+    /**
+     * @param PHU_name
+     * @return
+     */
+
+    public int getAdjusted_cases_by_PHU(String PHU_name) {
+        return Adjusted_cases_by_PHU[PHU.PHUs_list.indexOf(PHU_name)];
+    }
+
+    public int getAdjusted_deaths_by_PHU(String PHU_name) {
+        return Adjusted_deaths_by_PHU[PHU.PHUs_list.indexOf(PHU_name)];
+    }
+
+    public int getAdjusted_resolved_by_PHU(String PHU_name) {
+        return Adjusted_resolved_by_PHU[PHU.PHUs_list.indexOf(PHU_name)];
+    }
+
+    public int getUnadjusted_cases_by_PHU(String PHU_name) {
+        return Unadjusted_cases_by_PHU[PHU.PHUs_list.indexOf(PHU_name)];
+    }
+
+    public int getUnadjusted_deaths_by_PHU(String PHU_name) {
+        return Unadjusted_deaths_by_PHU[PHU.PHUs_list.indexOf(PHU_name)];
+    }
+
+    public int getUnadjusted_resolved_by_PHU(String PHU_name) {
+        return Unadjusted_resolved_by_PHU[PHU.PHUs_list.indexOf(PHU_name)];
     }
 
 }

@@ -66,7 +66,7 @@ public class Ontario_past_data_IO {
 
         System.out.println(str);
 
-        int Length = Function.Comma_count(str);
+        int Length = Function.Comma_count(str)+1;
 
         while (true) {
             try {
@@ -105,12 +105,6 @@ public class Ontario_past_data_IO {
                 Ontario_data.get(index).setPercentage_vaccinated_two_dose_by_age(two_dose,age_group_index);
             }
         }
-
-        for(Data_from_file d: Ontario_data){
-            System.out.print("Date: " + d.getDate());
-            System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(0));
-            System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
-        }
     }
     
     public static void Incidence_data_IO(){
@@ -142,9 +136,9 @@ public class Ontario_past_data_IO {
             e.printStackTrace();
         }
 
-        //System.out.println(str);
+        System.out.println(str);
 
-        int Length = Function.Comma_count(str);
+        int Length = Function.Comma_count(str) + 1;
 
         while (true) {
             try {
@@ -176,17 +170,16 @@ public class Ontario_past_data_IO {
 
                 String[] PHU_List = PHU.PHUs;
                 System.out.println(PHU_code);
-                System.out.println(PHU_List[0]);
 
                 int PHU_index = Function.index_of_object_in_array(PHU_code,PHU_List);
 
                 System.out.println(PHU_index);
+                System.out.println(str);
 
                 int index = Date_index.indexOf(date);
-                Ontario_data.get(index).setUnadjusted_cases_by_PHU(Integer.parseInt(Stratified[3]),index);
-                Ontario_data.get(index).setUnadjusted_resolved_by_PHU(Integer.parseInt(Stratified[4]),index);
-                Ontario_data.get(index).setUnadjusted_deaths_by_PHU(Integer.parseInt(Stratified[5]),index);
-                Ontario_data.get(index).adjust_data();
+                Ontario_data.get(index).setUnadjusted_cases_by_PHU(Integer.parseInt(Stratified[3]),PHU_index);
+                Ontario_data.get(index).setUnadjusted_resolved_by_PHU(Integer.parseInt(Stratified[4]),PHU_index);
+                Ontario_data.get(index).setUnadjusted_deaths_by_PHU(Integer.parseInt(Stratified[5]),PHU_index);
             }
 
             /*else {
@@ -223,10 +216,21 @@ public class Ontario_past_data_IO {
 
         }
 
+        for (int i = 0; i < Ontario_data.size(); i++) {
+            Ontario_data.get(i).adjust_data();
+        }
+
+
         for(Data_from_file d: Ontario_data){
-            System.out.print("Date: " + d.getDate());
-            //System.out.print("    Case: " + d.(0));
-            System.out.println("    Death: " + d.getPercentage_vaccinated_two_dose(0));
+            System.out.println("Date: " + d.getDate());
+            System.out.print("One Dose: " + d.getPercentage_vaccinated_one_dose(0));
+            System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
+            for (int i = 0; i < PHU.PHUs_list.size(); i++) {
+                System.out.print("PHU: " + PHU.PHUs_list.get(i));
+                System.out.print("    Case: " + d.getAdjusted_cases_by_PHU(i));
+                System.out.print("    Death: " + d.getAdjusted_deaths_by_PHU(i));
+                System.out.println("    Resolved: " + d.getAdjusted_resolved_by_PHU(i));
+            }
         }
 
     }
