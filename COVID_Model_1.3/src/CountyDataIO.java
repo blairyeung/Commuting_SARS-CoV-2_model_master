@@ -18,7 +18,7 @@ public class CountyDataIO {
     }
 
     public static void CountyData_IO_Input(){
-        String Path = Parameters.Model_PATH + "GeoCode.csv";
+        String Path = Parameters.ReadPath + "GeoCode.csv";
         FileReader reader = null;
         try {
             reader = new FileReader(Path);

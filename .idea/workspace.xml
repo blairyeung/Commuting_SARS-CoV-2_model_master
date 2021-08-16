@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="" />
+    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Info">
+      <change beforePath="$PROJECT_DIR$/.idea/Commuting_SARS-CoV-2_model_master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Commuting_SARS-CoV-2_model_master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Distance_calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Distance_calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/GammaDist.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/GammaDist.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +25,81 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
+  <component name="RunManager" selected="Application.CountyDataIO">
+    <configuration name="Commute_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Commute_IO" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CountyDataIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="CountyDataIO" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Distance_calculation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Distance_calculation" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ontario_past_data_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Ontario_past_data_IO" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Distance_calculation" />
+      <item itemvalue="Application.Ontario_past_data_IO" />
+      <item itemvalue="Application.Commute_IO" />
+      <item itemvalue="Application.CountyDataIO" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CountyDataIO" />
+        <item itemvalue="Application.Ontario_past_data_IO" />
+        <item itemvalue="Application.Commute_IO" />
+        <item itemvalue="Application.Distance_calculation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="" />
@@ -28,6 +108,34 @@
       <option name="presentableId" value="Default" />
       <updated>1626066082577</updated>
     </task>
+    <task id="LOCAL-00001" summary="Info">
+      <created>1629155110630</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629155110630</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Info" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Commuting_SARS_CoV_2_model_master$Commute_IO.ic" NAME="Commute_IO Coverage Results" MODIFIED="1629079754278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Commuting_SARS_CoV_2_model_master$Distance_calculation.ic" NAME="Distance_calculation Coverage Results" MODIFIED="1629080277946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
