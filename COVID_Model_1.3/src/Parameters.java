@@ -1,12 +1,12 @@
 public class Parameters {
     public static double Kilometers_per_degree = 113.321;//float
-    static public String Model_PATH = "COVID_Model_1.3\\Model IO\\";
+    static public String Model_PATH = "Model IO\\";
     static public String PathDefault = "E:/Global Model/Vaccine/";
     //static public String ReadPath = "E:/Global Model/";
     //static public String ReadPath = "G:\\COVID_19_Commuting_Master\\Commuting_Model\\Model IO\\";
-    static public String ReadPath = "COVID_Model_1.3\\Model IO\\";
+    static public String ReadPath = "Model IO\\";
     //static public String WritePath = "G:\\COVID_19_Commuting_Master\\Commuting_Model\\Model Output\\";
-    static public String WritePath = "COVID_Model_1.3\\Model Output\\";
+    static public String WritePath = "Model Output\\";
     //static public String WritePath = "C:\\Users\\Blair Yang\\Commuting_Model\\Model Output\\";
     static public double Transmissbility[] = {0.025,0.025*1.66};
     static public int DataPackSize = 24;
