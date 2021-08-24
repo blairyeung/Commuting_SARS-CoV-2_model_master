@@ -32,8 +32,8 @@ public class Main {
                 Day = day;
                 Ontario.ModelIterator();
             }
-            Ontario.printToFile();
-            //Ontario.printToConsole();
+            //Ontario.printToFile();
+            Ontario.printToConsole();
             Ontario.clear();
             System.gc();
         }

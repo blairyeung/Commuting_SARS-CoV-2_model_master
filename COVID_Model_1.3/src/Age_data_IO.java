@@ -3,6 +3,10 @@
 
     public class Age_data_IO {
 
+        /**
+         * Not an IO class
+         */
+
         public static ArrayList[] County_by_PHU = null;
         public static int[] Population_by_PHU = null;
 
