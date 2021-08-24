@@ -36,7 +36,7 @@ public class IO{
     public static void Age_distribution_IO(){
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader(Parameters.ReadPath+"Country_Files\\Country_Age_Distribution.csv"));
+            reader = new BufferedReader(new FileReader(Parameters.ReadPath+"Country_Files/Country_Age_Distribution.csv"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
