@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Update Path">
+      <change afterPath="$PROJECT_DIR$/Model IO/cases_by_status_and_phu_population.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Age_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Age_data_IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Auxiliary.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Auxiliary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Age_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Age_data_IO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +22,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1vCVVREyfJ9DRW3DCDD22w0Dm3Q" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -31,7 +41,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Ontario_past_data_IO">
+  <component name="RunManager" selected="Application.Age_data_IO">
+    <configuration name="Age_data_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="MAIN_CLASS_NAME" value="Age_data_IO" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Auxiliary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <option name="MAIN_CLASS_NAME" value="Auxiliary" />
@@ -51,15 +69,6 @@
     <configuration name="CountyDataIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <option name="MAIN_CLASS_NAME" value="CountyDataIO" />
-      <module name="Commuting_SARS-CoV-2_model_master" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Distance_calculation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Distance_calculation" />
       <module name="Commuting_SARS-CoV-2_model_master" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,19 +100,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Distance_calculation" />
       <item itemvalue="Application.Ontario_past_data_IO" />
       <item itemvalue="Application.Commute_IO" />
       <item itemvalue="Application.CountyDataIO" />
       <item itemvalue="Application.Auxiliary" />
+      <item itemvalue="Application.Age_data_IO" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Age_data_IO" />
         <item itemvalue="Application.Ontario_past_data_IO" />
         <item itemvalue="Application.Auxiliary" />
         <item itemvalue="Application.CountyDataIO" />
         <item itemvalue="Application.Commute_IO" />
-        <item itemvalue="Application.Distance_calculation" />
       </list>
     </recent_temporary>
   </component>
@@ -146,6 +155,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Info" />
     <MESSAGE value="Update Path" />
     <option name="LAST_COMMIT_MESSAGE" value="Update Path" />

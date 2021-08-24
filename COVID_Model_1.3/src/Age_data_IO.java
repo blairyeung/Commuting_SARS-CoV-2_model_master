@@ -45,7 +45,7 @@
             String Path = Parameters.ReadPath;
             FileReader read = null;
             try {
-                read = new FileReader("G:\\R\\cases_by_status_and_phu.csv");
+                read = new FileReader(Parameters.Model_PATH + "cases_by_status_and_phu.csv");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -70,7 +70,7 @@
 
             FileWriter writer = null;
             try {
-                writer = new FileWriter("G:\\R\\cases_by_status_and_phu_population.csv");
+                writer = new FileWriter(Parameters.Model_PATH + "cases_by_status_and_phu_population.csv");
             } catch (IOException e) {
                 e.printStackTrace();
             }

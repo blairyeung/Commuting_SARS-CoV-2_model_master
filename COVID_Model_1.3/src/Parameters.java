@@ -1,4 +1,7 @@
 public class Parameters {
+
+    final static public String Version = "Ver 1.4";
+
     public static double Kilometers_per_degree = 113.321;//float
     static public String Model_PATH = "Model IO/";
     static public String PathDefault = "E:/Global Model/Vaccine/";
