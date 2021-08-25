@@ -89,7 +89,7 @@ public class IO{
                 MatricesByCategory[County_type][Category] = new ArrayList<double[][]>();
                 for (int Country = 0; Country < Countrycode.size(); Country++) {
                     String Suf = ".csv";
-                    String name = Parameters.ReadPath + "Matrix_IO\\Matrix_by_Category\\" + County_Category[County_type] + "\\" + Categories[Category] + "\\"+Countrycode.get(Country)+Suf;
+                    String name = Parameters.ReadPath + "Matrix_IO/Matrix_by_Category/" + County_Category[County_type] + "/" + Categories[Category] + "/"+Countrycode.get(Country)+Suf;
                     try {
                         Readers[Country] = new BufferedReader(new FileReader(name));
                     } catch (FileNotFoundException e) {
@@ -140,7 +140,7 @@ public class IO{
 
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader(Parameters.ReadPath+"Vaccine_Pfizer\\Efficacy.csv"));
+            reader = new BufferedReader(new FileReader(Parameters.ReadPath+"Vaccine_Pfizer/Efficacy.csv"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
