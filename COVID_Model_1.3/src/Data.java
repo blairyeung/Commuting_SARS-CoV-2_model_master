@@ -10,7 +10,7 @@ public class Data {
 
     private double InitialInfected = 50;
 
-    /**Store the epidemiological information of each county*/
+    /**Store the epidemiological information of each county of each day*/
 
     public Data(){
 

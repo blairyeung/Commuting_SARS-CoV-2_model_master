@@ -106,7 +106,24 @@ public class Ontario_past_data_IO {
             }
         }
     }
-    
+
+    /**
+     * Suppose
+     * there are 100,000 people in york region
+     * richmond hill pop: 30,000
+     * markham pop: 50,000
+     * north york: 20,000
+     *
+     * today, there are 200 new cases in york region
+     *
+     * then, we assume that there are:
+     * 60 new cases in richmond hill
+     * 100 new cases in markham
+     * 40 news cases in north york
+     *
+     * and this pattern applies to resolved and deaths
+     */
+
     public static void Incidence_data_IO(){
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -227,8 +244,8 @@ public class Ontario_past_data_IO {
             System.out.println("Date: " + d.getDate());
             for (int i = 0; i < Age_band_name.length; i++) {
                 System.out.print("Age_band: " + Age_band_name[i]);
-                System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(0));
-                System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(0));
+                System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(i));
+                System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(i));
             }
 
             for (int i = 0; i < PHU.PHUs_list.size(); i++) {

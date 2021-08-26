@@ -1,4 +1,5 @@
 public class County{
+
     private String County_Name;
     private int County_Index;
     private int Population;
@@ -7,11 +8,15 @@ public class County{
     private CountyDataArray Series;
     private Data County_Data;
 
-
     public County(){
         County_Data = new Data();
         Series = new CountyDataArray();
     }
+
+    /**
+     * @param Population
+     * @param Code
+     */
 
     public County(int Population, int Code){
         System.out.println(Population);

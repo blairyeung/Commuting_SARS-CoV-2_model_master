@@ -18,8 +18,8 @@ public class Commute_IO {
     public static int[] Local_worker_array = null;
 
     public static void main(String[] args) {
-        CountyDataIO IO = new CountyDataIO();
-        Commute_IO Commute = new Commute_IO();
+        CountyDataIO.CountyData_IO_Input();
+        Commute_IO.Commute_IO_Input();
     }
 
     public static void Commute_IO_Input(){
@@ -105,7 +105,7 @@ public class Commute_IO {
             System.out.println(Resident_Code);*/
 
             int Work_Index = CountyDataIO.Code_Index.indexOf(Work_Code);
-            int Resident_Index =CountyDataIO.Code_Index.indexOf(Resident_Code);
+            int Resident_Index = CountyDataIO.Code_Index.indexOf(Resident_Code);
 
             if(Work_Index==Resident_Index){
                 Local_worker_array[Work_Index] = Total_Commuter;
@@ -128,9 +128,6 @@ public class Commute_IO {
         Reverse_Commuting_matrix = Reverse_Mat(Commuting_matrix);
 
 
-    }
-
-    public Commute_IO(){
     }
 
     public static void generateWeeklyMatrix(int[] Tiers){

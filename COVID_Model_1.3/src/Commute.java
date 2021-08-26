@@ -5,17 +5,28 @@ public class Commute {
 
     public static final int UpperLimit = 120;/**Assumed limit for commute distance*/
 
-    private static int Commute_Matrix[][] = null; /**Live_in_County_A_Work_in_County_B*/
-    private static int Exportations[] = null; /**Live_in_County_A_Work_in_County_B*/
+    /**
+     * Raw data
+     */
 
+    private static int Commute_Matrix[][] = null; /**Live_in_County_A_Work_in_County_B*/
+    private static int Reversed_Commute_Matrix[][] = null; /**Work_in_County_A_Resident_in_County_B*/
+    private static int Exportations[] = null; /**Live_in_County_A_Work_in_County_B*/
+    private static int Importations[] = null; /**Work_in_County_A_Resident_in_County_B*/
+
+    /**
+     * Processed data
+     */
 
     private static int Generated_Matrix[][] = null; /**Live_in_County_A_Work_in_County_B*/
     private static int Generated_Reversed_Commute_Matrix[][] = null; /**Live_in_County_A_Work_in_County_B*/
     private static int Generated_Exportations[] = null; /**Live_in_County_A_Work_in_County_B*/
     private static int Generated_Importations[] = null; /**Live_in_County_A_Work_in_County_B*/
 
-    private static int Reversed_Commute_Matrix[][] = null; /**Work_in_County_A_Resident_in_County_B*/
-    private static int Importations[] = null; /**Work_in_County_A_Resident_in_County_B*/
+
+
+
+
 
     private static int Total_number_of_commuters[][] =  null;
 

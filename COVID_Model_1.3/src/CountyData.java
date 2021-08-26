@@ -15,7 +15,6 @@ public class CountyData {
      * @param County_Type
      */
 
-
     /**Store the demographic information of each county*/
 
     public CountyData(String Name, int District, double[] Coordinate, int Population, int County_Type){
@@ -36,14 +35,13 @@ public class CountyData {
     }
 
     public CountyData(int County_ID, String Name, int District, double[] Coordinate, int Population, int County_Type, int County_Cateogyry){
+        this.ID = County_ID;
         this.Name = Name;/**Name_of_the_county*/
         this.District = District;/**Code_of_the_district*/
         this.Coordinate = Coordinate;/**Geographical_coordinate*/
         this.Population = Population;/**Total_population*/
         this.County_Type = County_Type;/**County_of_the_county: urban/rural*/
         this.County_Category = County_Cateogyry;/**Larger CMA, CA, or MIZ*/
-
-
     }
 
     public void setCounty_Category(int county_Category) {

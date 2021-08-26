@@ -42,7 +42,7 @@ public class SEIRModel{
         double[][][] Mat = {Work,School,Home,Other};
 
         /**
-         * Imported_cases will only increase the number of potential contacters, rather tha infected
+         * Imported_cases will only increase the number of potential contacters, rather than infected
          */
 
         ExportedCases = 0;
@@ -82,11 +82,9 @@ public class SEIRModel{
          * Process patients who are already infected
          */
 
-
-
         Data ReturnData = new Data(Population);
 
-        for (int Variant = 0; Variant < 2; Variant++) {
+        for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
             for (int Patient_Age_Band = 0; Patient_Age_Band < 16; Patient_Age_Band++) {
 
 
@@ -181,13 +179,17 @@ public class SEIRModel{
          *  Patients who are newly infected
          */
 
-        for (int Variant = 0; Variant < 2; Variant++) {
+        for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
             double Transmissible[] = new double[16];
             for (int Patient_Age_Band = 0; Patient_Age_Band < 16; Patient_Age_Band++) {
                 double Age_Band_Exposed = CountyData.getDataPackByAge()[Variant][3][Patient_Age_Band] + (Parameters.Workforce_Age_Dist[Patient_Age_Band] * ImportedCases);
                 double EffectiveContacter = Math.round(findEffectiveContacter(SeriesData, Variant, Patient_Age_Band, Age_Band_Exposed)+0.4);
                 Transmissible[Patient_Age_Band] = EffectiveContacter;
             }
+
+            /**
+             * Number of individuals newly infected
+             */
 
             double[] DailyInfectedArray = AgeDistribution.getPatientArrayfromArray(Transmissible, ImmunityMat, 1-FlightConstant, Variant, Mat,Tier, 0);
 
@@ -387,7 +389,7 @@ public class SEIRModel{
          * Find Immunity Matrix/Array
          */
 
-        for (int Variant = 0; Variant < 2; Variant++) {
+        for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
             for (int Patient_Age_Band = 0; Patient_Age_Band < 16; Patient_Age_Band++) {
 
                 ReturnData.setValueDataPackByAge(Variant,Patient_Age_Band,1,CountyData.getDataPackByAge()[Variant][1][Patient_Age_Band]);//Population
@@ -422,7 +424,7 @@ public class SEIRModel{
          *  Patients who are newly infected
          */
 
-        for (int Variant = 0; Variant < 2; Variant++) {
+        for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
             double Transmissible[] = new double[16];
             for (int Patient_Age_Band = 0; Patient_Age_Band < 16; Patient_Age_Band++) {
                 double Age_Band_Exposed = CountyData.getDataPackByAge()[Variant][3][Patient_Age_Band] + (Parameters.Workforce_Age_Dist[Patient_Age_Band] * ImportedCases);

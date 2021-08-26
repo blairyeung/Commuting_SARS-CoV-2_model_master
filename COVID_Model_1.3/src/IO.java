@@ -80,7 +80,6 @@ public class IO{
     public static void Matrix_IO(){
         BufferedReader[] Readers = new BufferedReader[Countrycode.size()];
 
-
         String Categories[] = {"work","school","home","others"};
         String County_Category[] = {"rural","urban"};
 
@@ -172,7 +171,7 @@ public class IO{
         }
     }
 
-    public ArrayList<String> Buffered_read(String Path){
+    public static ArrayList<String> Buffered_read(String Path){
 
         ArrayList<String> Lines = new ArrayList<>();
 

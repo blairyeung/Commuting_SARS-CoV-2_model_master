@@ -13,7 +13,6 @@ public class CountyDataIO {
     public static ArrayList<Integer> DistrictCode = new ArrayList<>();
 
     public static void main(String[] args) {
-       //CountyDataIO C = new CountyDataIO();
         CountyData_IO_Input();
     }
 

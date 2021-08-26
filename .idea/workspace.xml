@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Runnable (supposedly)" />
+    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Path for mac">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/AgeDistribution.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/AgeDistribution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Commute.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Commute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Commute_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Commute_IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/County.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/County.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyData.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyDataIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyDataIO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/SEIRModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/SEIRModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/AgeDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/AgeDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute_IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/County.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/County.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyData.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/SEIRModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/SEIRModel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +38,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1vCVVREyfJ9DRW3DCDD22w0Dm3Q" />
   <component name="ProjectLevelVcsManager">
@@ -33,7 +67,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Ontario_past_data_IO">
     <configuration name="Age_data_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <option name="MAIN_CLASS_NAME" value="Age_data_IO" />
@@ -58,9 +92,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CountyDataIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
-      <option name="MAIN_CLASS_NAME" value="CountyDataIO" />
+      <option name="MAIN_CLASS_NAME" value="IO" />
       <module name="Commuting_SARS-CoV-2_model_master" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,18 +127,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Ontario_past_data_IO" />
-      <item itemvalue="Application.Commute_IO" />
-      <item itemvalue="Application.CountyDataIO" />
       <item itemvalue="Application.Auxiliary" />
       <item itemvalue="Application.Age_data_IO" />
+      <item itemvalue="Application.IO" />
+      <item itemvalue="Application.Commute_IO" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Age_data_IO" />
         <item itemvalue="Application.Ontario_past_data_IO" />
-        <item itemvalue="Application.Auxiliary" />
-        <item itemvalue="Application.CountyDataIO" />
+        <item itemvalue="Application.IO" />
         <item itemvalue="Application.Commute_IO" />
+        <item itemvalue="Application.Age_data_IO" />
+        <item itemvalue="Application.Auxiliary" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629848197568</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Path for mac">
+      <created>1629849467011</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1629849467011</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Path for mac">
+      <created>1629849712938</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1629849712938</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +213,8 @@
     <MESSAGE value="Info" />
     <MESSAGE value="Update Path" />
     <MESSAGE value="Runnable (supposedly)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Runnable (supposedly)" />
+    <MESSAGE value="Path for mac" />
+    <option name="LAST_COMMIT_MESSAGE" value="Path for mac" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Commuting_SARS_CoV_2_model_master$Commute_IO.ic" NAME="Commute_IO Coverage Results" MODIFIED="1629079754278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

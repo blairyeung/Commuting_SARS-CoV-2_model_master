@@ -44,6 +44,7 @@ public class AgeDistribution {
                 SynthesizedPatientArr[AgeBandj] += PatientArr[AgeBandj];
             }
         }
+
         for (int i = 0; i < 16; i++) {
             SynthesizedPatientArr[i] = (int) Math.round(SynthesizedPatientArr[i]);
         }
