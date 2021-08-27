@@ -113,7 +113,6 @@ public class NewPatientAgeDist {
                 for (int i = 0; i < distribut.length; i++) {
                     distribut[i] = (int) (distribut[i]*100.0);
                 }
-                System.out.println(true);
                 break;
             }
         }

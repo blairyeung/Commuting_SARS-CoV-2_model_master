@@ -76,7 +76,6 @@ public class Population_stratification {
                         list.add(line);
                     }
                 }
-                //System.out.println(true);
 
             }
         }

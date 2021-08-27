@@ -328,15 +328,12 @@ public class Commute {
                         switch (CountyDataIO.Counties[Resident].getName()){
                             case "Hamilton":
                                 Expected_number_of_commuters = 55365;
-                                System.out.println(true);
                                 break;
                             case "Oshawa":
                                 Expected_number_of_commuters = 53320;
-                                System.out.println(true);
                                 break;
                             case "Barrie":
                                 Expected_number_of_commuters = 22105;
-                                System.out.println(true);
                                 break;
                             default:
                                 break;

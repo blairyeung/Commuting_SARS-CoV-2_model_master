@@ -66,7 +66,7 @@ public class Ontario_past_data_IO {
 
         System.out.println(str);
 
-        int Length = Function.Comma_count(str)+1;
+        int Length = Function.Column_count(str);
 
         while (true) {
             try {
@@ -155,7 +155,7 @@ public class Ontario_past_data_IO {
 
         System.out.println(str);
 
-        int Length = Function.Comma_count(str) + 1;
+        int Length = Function.Column_count(str);
 
         while (true) {
             try {

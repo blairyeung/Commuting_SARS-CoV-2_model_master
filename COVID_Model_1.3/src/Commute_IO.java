@@ -24,13 +24,8 @@ public class Commute_IO {
 
     public static void Commute_IO_Input(){
         String Path = Parameters.Model_PATH + "IO Commute.csv";
-        FileReader reader = null;
-        try {
-            reader = new FileReader(Path);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader bufferreader = new BufferedReader(reader);
+
+
 
         Static_Commuting_Matrix = new int[CountyDataIO.Counties.length][CountyDataIO.Counties.length];
         Static_Commuting_Matrix_Male = new int[CountyDataIO.Counties.length][CountyDataIO.Counties.length];
@@ -44,43 +39,19 @@ public class Commute_IO {
         Local_worker_array = new int[CountyDataIO.Counties.length];
 
         ArrayList<Commute_info> Commuting_List = new ArrayList<>();
+        ArrayList<String> lines = Function.Buffered_IO(Path,true);
 
+        for (int line = 0; line < lines.size(); line++) {
+            String str = lines.get(line);
+            String[] Stratified = Function.Stratification(str);
 
-        String str = null;
-        try {
-            str = bufferreader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        while (true){
-            try {
-                if (!((str = bufferreader.readLine())!=null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            String ID_str_r = str.substring(0,str.indexOf(","));
-            int ID_Resident = Integer.parseInt(ID_str_r);
-            str = str.substring(str.indexOf(",")+1);
-
-            String Name_Resident = str.substring(0,str.indexOf(","));
-            str = str.substring(str.indexOf(",")+1);
-
-            String ID_str_w = str.substring(0,str.indexOf(","));
-            int ID_Work = Integer.parseInt(ID_str_w);
-
-            str = str.substring(str.indexOf(",")+1);
-            String Name_Work = str.substring(0,str.indexOf(","));
-
-            str = str.substring(str.indexOf(",")+1);
-
-            int Total_Commuter = Integer.parseInt(str.substring(0,str.indexOf(",")));
-            str = str.substring(str.indexOf(",")+1);
-
-            int Male_Commuter = Integer.parseInt(str.substring(0,str.indexOf(",")));
-            str = str.substring(str.indexOf(",")+1);
-
-            int Female_Comuter = Integer.parseInt(str);
+            int ID_Resident = Integer.parseInt(Stratified[0]);
+            String Name_Resident = Stratified[1];
+            int ID_Work = Integer.parseInt(Stratified[2]);
+            String Name_Work = Stratified[3];
+            int Total_Commuter = Integer.parseInt(Stratified[4]);
+            int Male_Commuter = Integer.parseInt(Stratified[5]);
+            int Female_Comuter = Integer.parseInt(Stratified[6]);
 
             System.out.print("County: " + ID_Resident);
             System.out.print("    Name : " + Name_Resident);
@@ -94,16 +65,14 @@ public class Commute_IO {
             Commuting_List.add(info);
         }
 
+
         for (int Info = 0; Info < Commuting_List.size(); Info++) {
+
             int Work_Code = Commuting_List.get(Info).getWork_County_Code();
             int Resident_Code = Commuting_List.get(Info).getResident_County_Code();
             int Total_Commuter = Commuting_List.get(Info).getTotal_Commuter();
             int Male_Commuter = Commuting_List.get(Info).getMale_Commuter();
             int Female_Commuter = Commuting_List.get(Info).getFemale_Commuter();
-
-            /*System.out.println(Work_Code);
-            System.out.println(Resident_Code);*/
-
             int Work_Index = CountyDataIO.Code_Index.indexOf(Work_Code);
             int Resident_Index = CountyDataIO.Code_Index.indexOf(Resident_Code);
 

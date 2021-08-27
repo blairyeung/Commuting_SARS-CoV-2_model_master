@@ -1,11 +1,19 @@
 import javax.swing.text.Segment;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Function {
     public static void main(String[] args) {
-        for (int i = 0; i < 24; i++) {
-            System.out.println(findGuassianBlur(Parameters.Travel_distance_distribution_full, i));
+        ArrayList i = Buffered_IO(Parameters.ReadPath + "GeoCode.csv");
+        for (int i1 = 0; i1 < i.size(); i1++) {
+            System.out.println(i.get(i1));
         }
+        /*for (int i = 0; i < 24; i++) {
+            System.out.println(findGuassianBlur(Parameters.Travel_distance_distribution_full, i));
+        }*/
     }
     public static double[] Normalization(double[] Array){
         double Sum = 0;
@@ -86,12 +94,7 @@ public class Function {
             double Generated_rad = Math.random();
             double Iterated = 0;
 
-            /*for (int Index = 0; Index < Normalized_Probabilities.length; Index++) {
-                //System.out.println(CountyDataIO.Counties[Index].getName() + Normalized_Probabilities[Index]);
-            }*/
-
             for (int Index = 0; Index < Normalized_Probabilities.length; Index++) {
-                //System.out.println(Normalized_Probabilities[Index]);
                 Iterated += Normalized_Probabilities[Index];
                 if(Generated_rad<=Iterated){
                     Return_index = Index;
@@ -100,9 +103,12 @@ public class Function {
                 Iterated += Normalized_Probabilities[Index];
             }
             Return_arr[Return_index] += 1;
-            //System.out.println(Return_index);
         }
         return Return_arr;
+    }
+
+    public static int Column_count(String input){
+        return Comma_count(input)+1;
     }
 
     public static int Comma_count(String input){
@@ -119,8 +125,7 @@ public class Function {
         /**
          * This will first detect the number of elements, takes longer but it is more flexible
          */
-
-        return null;
+        return Stratification(input, Column_count(input));
     }
 
 
@@ -151,10 +156,53 @@ public class Function {
             }
         }
         return -1;
-        /*for(Object o: Array){
-            if(o.equals(target)){
-                return
+    }
+
+    public static ArrayList<String> Buffered_IO(String Path){
+       return Buffered_IO(Path,false);
+    }
+
+    public static ArrayList<String> Buffered_IO(String Path, boolean Remove_first_line){
+        System.out.println("Path acquired!\nPath: " + Path);
+
+        FileReader read = null;
+        try {
+            read = new FileReader(Path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader buffread = new BufferedReader(read);
+
+        String str;
+
+        if(Remove_first_line){
+            System.out.println("Remove_first_line = "+ true);
+            try {
+                str = buffread.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }*/
+        }
+
+        else {
+            str = "";
+        }
+
+        ArrayList<String> list = new ArrayList<>();
+
+        while (true) {
+            try {
+                if (!((str = buffread.readLine()) != null)) break;
+                list.add(str);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        for (int i = 0; i < list.size(); i++) {
+            //System.out.println(list.get(i));
+        }
+        return list;
     }
 }
+

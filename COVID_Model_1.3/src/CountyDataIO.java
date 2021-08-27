@@ -18,15 +18,8 @@ public class CountyDataIO {
 
     public static void CountyData_IO_Input(){
         String Path = Parameters.ReadPath + "GeoCode.csv";
-        FileReader reader = null;
-        try {
-            reader = new FileReader(Path);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader bufferreader = new BufferedReader(reader);
 
-        ArrayList<String> CoordList = new ArrayList<>();
+        ArrayList<String> lines = Function.Buffered_IO(Path,true);
         ArrayList<String> Locations = new ArrayList<>();
         ArrayList<Integer> Counties_ID = new ArrayList<>();
         ArrayList<Double> Longitudes = new ArrayList<>();
@@ -36,42 +29,17 @@ public class CountyDataIO {
         ArrayList<String> OrgCounty = new ArrayList<>();
         ArrayList<CountyData> CountyDataList = new ArrayList<>();
 
-        String line = null;
-
-        try {
-            line = bufferreader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        while (true) {
-            try {
-                if (!((line = bufferreader.readLine()) != null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            CoordList.add(line);
-        }
-
-        for (int i = 0; i < CoordList.size(); i++) {
-            String str = CoordList.get(i);
-            String ID_str = str.substring(0,str.indexOf(","));
+        for (int i = 0; i < lines.size(); i++) {
+            String str = lines.get(i);
+            String[] Stratified = Function.Stratification(str);
+            String ID_str = Stratified[0];
             int ID_int = Integer.parseInt(ID_str);
-            str = str.substring(str.indexOf(",")+1);
-            String Location = str.substring(0,str.indexOf(","));
-            str = str.substring(str.indexOf(",")+1);
-            String Longti = str.substring(0,str.indexOf(","));
-            double Longitude = Double.parseDouble(Longti);
-            str = str.substring(str.indexOf(",")+1);
-            String Lati = str.substring(0,str.indexOf(","));
-            double Latitude = Double.parseDouble(Lati);
-            str = str.substring(str.indexOf(",")+1);
-            //System.out.println(str);
-            int Population = Integer.parseInt(str.substring(0,str.indexOf(",")));
-            str = str.substring(str.indexOf(",")+1);
-            String District_Code = str.substring(0,str.indexOf(","));
-            int District = Integer.parseInt(District_Code);
-            String County_Type = str.substring(str.indexOf(",")+1);
+            String Location = Stratified[1];
+            double Longitude = Double.parseDouble(Stratified[2]);
+            double Latitude = Double.parseDouble(Stratified[3]);
+            int Population = Integer.parseInt(Stratified[4]);
+            int District = Integer.parseInt(Stratified[5]);
+            String County_Type = Stratified[6];
 
             /**
              * Remove if population is 0
@@ -87,7 +55,6 @@ public class CountyDataIO {
 
             if(County_Type.equals("Town")||County_Type.equals("City")||County_Type.equals("Municipality")){
                 CountyType = 1;
-                System.out.println(false);
             }
 
             System.out.println("ID: " + ID_int + "  Location: " + Location + "  Longtitude: " + Longitude + "  Latitude: " + Latitude + "  Population: " + Population + "  District: " + District + "  County_Type: " + CountyType);
@@ -154,7 +121,6 @@ public class CountyDataIO {
                  */
                 DistanceBetweenCounties[i][i1] = distance;
 
-                //System.out.println("    Distnace: "+ distance);
             }
         }
 
