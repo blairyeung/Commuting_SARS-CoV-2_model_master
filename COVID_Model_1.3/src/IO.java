@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class IO{
     public static ArrayList<String> Countryname = new ArrayList<>();
