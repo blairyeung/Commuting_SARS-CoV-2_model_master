@@ -21,10 +21,9 @@ public class IO{
 
     public static ArrayList<double[]> Biases = new ArrayList<>();
 
-    public IO(){
-    }
+
     public static void main(String[] args) {
-        IO io = new IO();
+        Combined_Input();
     }
 
     public static void Combined_Input(){
@@ -34,44 +33,23 @@ public class IO{
     }
 
     public static void Age_distribution_IO(){
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(Parameters.ReadPath+"Country_Files/Country_Age_Distribution.csv"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
-        String buffer = "";
+        ArrayList<String> lines = Function.Buffered_IO(Parameters.ReadPath+"Country_Files/Country_Age_Distribution.csv",false);
 
-        while (true) {
-            try {
-                if (!((buffer = reader.readLine())!=null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            int comma = buffer.indexOf(",");
-            String sub1 = buffer.substring(comma+1);
-            String sub2 = buffer.substring(0,comma);
-            String c = sub1.substring(0,sub1.indexOf(","));
-            sub1 = sub1.substring(sub1.indexOf(",")+1);
-            String r = sub1.substring(0,sub1.indexOf(","));
-            sub1 = sub1.substring(sub1.indexOf(",")+1);
+        for (int line = 0; line < lines.size(); line++) {
+            String str = lines.get(line);
+            String[] Stratified = Function.Stratification(str);
+            String country_name = Stratified[0];
+            String country_code = Stratified[1];
+            String R0 = Stratified[2];
             double[] ages = new double[16];
             for (int i = 0; i < 16; i++) {
-                String b;
-                if(i==16){
-                    b = sub1;
-                }
-                else {
-                    b = sub1.substring(0,sub1.indexOf(","));
-                }
-                sub1 = sub1.substring(sub1.indexOf(",")+1);
-                double d = Double.parseDouble(b);
+                double d = Double.parseDouble(Stratified[i+2]);
                 ages[i] = d;
             }
-            Countryname.add(sub2);
-            Countrycode.add(c);
-            BasicReproduction.add(Double.parseDouble(r));
+            Countryname.add(country_name);
+            Countrycode.add(country_code);
+            BasicReproduction.add(Double.parseDouble(R0));
             AgeS.add(ages);
         }
 
@@ -135,37 +113,13 @@ public class IO{
 
     public static void Immunity_level_IO(){
 
-        ArrayList<String> Lines = new ArrayList<>();
+        ArrayList<String> lines = Function.Buffered_IO(Parameters.ReadPath+"Vaccine_Pfizer/Efficacy.csv",true);
 
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(Parameters.ReadPath+"Vaccine_Pfizer/Efficacy.csv"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        String str = "";
-
-        try {
-            str = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        while (true) {
-            try {
-                if (!((str = reader.readLine()) != null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Lines.add(str);
-        }
-
-        for (int line = 0; line < Lines.size(); line++) {
-            String Efficacy_on_day = Lines.get(line);
-            int Sep_index = Efficacy_on_day.indexOf(",");
-            String Mild_str = Efficacy_on_day.substring(0,Sep_index);
-            String Severe_str = Efficacy_on_day.substring(Sep_index+1);
+        for (int line = 0; line < lines.size(); line++) {
+            String Efficacy_on_day = lines.get(line);
+            String Stratified[] = Function.Stratification(Efficacy_on_day);
+            String Mild_str = Stratified[0];
+            String Severe_str = Stratified[1];
             Immunity_wane_mild.add(Double.parseDouble(Mild_str));
             Immunity_wane_severe.add(Double.parseDouble(Severe_str));
         }

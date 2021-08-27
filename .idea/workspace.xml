@@ -6,20 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model/src/Commute.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model/src/Commute.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Commute_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Commute_IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyDataIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyDataIO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Function.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Function.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Commute_IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/NewPatientAgeDist.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/NewPatientAgeDist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supplementary_for_model/src/NewPatientAgeDist.java" beforeDir="false" afterPath="$PROJECT_DIR$/Supplementary_for_model/src/NewPatientAgeDist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Supplementary_for_model/src/Population_stratification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Supplementary_for_model/src/Population_stratification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +45,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Commute_IO">
+  <component name="RunManager" selected="Application.IO">
     <configuration name="Commute_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <option name="MAIN_CLASS_NAME" value="Commute_IO" />
@@ -124,11 +112,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IO" />
         <item itemvalue="Application.Commute_IO" />
         <item itemvalue="Application.CountyDataIO" />
         <item itemvalue="Application.Function" />
         <item itemvalue="Application.Ontario_past_data_IO" />
-        <item itemvalue="Application.IO" />
       </list>
     </recent_temporary>
   </component>
