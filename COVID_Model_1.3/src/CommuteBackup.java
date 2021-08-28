@@ -37,7 +37,7 @@ public class CommuteBackup {
          * Will only be ran once to save computational power
          */
 
-        int Number_of_Counties = CoordIO.Counties.length;
+        int Number_of_Counties = CountyDataIO.Counties.length;
 
         Commute_distance_tier_by_county = new int[Number_of_Counties][Parameters.Travel_distance_distribution_full.length];
         Within_same_district_by_county = new boolean[Number_of_Counties][Parameters.Travel_distance_distribution_full.length];
@@ -61,9 +61,9 @@ public class CommuteBackup {
          */
 
         for (int County_Code = 0; County_Code < Number_of_Counties; County_Code++) {
-            int County_type = CoordIO.Counties[County_Code].getCounty_Type();
+            int County_type = CountyDataIO.Counties[County_Code].getCounty_Type();
 
-            int Population = CoordIO.Counties[County_Code].getPopulation();
+            int Population = CountyDataIO.Counties[County_Code].getPopulation();
 
             double Commuter_ratio = 0;
             double toUrban = 0;
@@ -120,7 +120,7 @@ public class CommuteBackup {
                     continue;
                 }
 
-                double distance = CoordIO.DistanceBetweenCounties[Resident][Work];
+                double distance = CountyDataIO.DistanceBetweenCounties[Resident][Work];
 
                 if(distance<=UpperLimit){
                     int distance_tier = 6;
@@ -134,8 +134,8 @@ public class CommuteBackup {
                      }
                      }*/
 
-                    int County_type = CoordIO.Counties[Work].getCounty_Type();
-                    int Workplace_population = CoordIO.Counties[Work].getPopulation();
+                    int County_type = CountyDataIO.Counties[Work].getCounty_Type();
+                    int Workplace_population = CountyDataIO.Counties[Work].getPopulation();
 
                     switch (County_type){
                         case 0:
@@ -176,7 +176,7 @@ public class CommuteBackup {
 
             }
 
-            System.out.println(CoordIO.Counties[Resident].getName());
+            System.out.println(CountyDataIO.Counties[Resident].getName());
 
             for (int i = 0; i < 24; i++) {
                 System.out.println("Tier= " + Parameters.Travel_distance_tiers_full[i]);
@@ -204,14 +204,14 @@ public class CommuteBackup {
                     continue;
                 }
 
-                double distance = CoordIO.DistanceBetweenCounties[Resident][Work];
+                double distance = CountyDataIO.DistanceBetweenCounties[Resident][Work];
 
                 if(distance<=UpperLimit){
 
-                    int Workplace_population = CoordIO.Counties[Work].getPopulation();
+                    int Workplace_population = CountyDataIO.Counties[Work].getPopulation();
 
                     Tier = (int) (distance/5.0);
-                    int County_Type = CoordIO.Counties[Work].getCounty_Type();
+                    int County_Type = CountyDataIO.Counties[Work].getCounty_Type();
                     int Total_population_range = 0;
 
                     double Proportion = 0;
@@ -239,7 +239,7 @@ public class CommuteBackup {
                                  * Nearly 35% of the total population
                                  *
                                  * */
-                                Expected_number_of_commuters = (int) Math.round(0.8 * Parameters.Urban_commuter_ratio * ((double) CoordIO.Counties[Resident].getPopulation()));
+                                Expected_number_of_commuters = (int) Math.round(0.8 * Parameters.Urban_commuter_ratio * ((double) CountyDataIO.Counties[Resident].getPopulation()));
                             }
 
                             break;
@@ -336,11 +336,11 @@ public class CommuteBackup {
     }
 
     public double[][] Commute(double[] Tier, double[][] StratificationByCouty){
-        int CountyCount = CoordIO.Counties.length;
+        int CountyCount = CountyDataIO.Counties.length;
         double[][] CommuteFromTo = new double[CountyCount][CountyCount];
         for (int i = 0; i < CountyCount; i++) {
             for (int i1 = 0; i1 < CountyCount; i1++) {
-                double Distance = CoordIO.DistanceBetweenCounties[i][i1];
+                double Distance = CountyDataIO.DistanceBetweenCounties[i][i1];
                 int CaseFlux;
 
             }
@@ -349,11 +349,11 @@ public class CommuteBackup {
     }
 
     public double[] FindCoutiesWithinRange(double[] StartCoord, int InitialCounty){
-        double[] Distances = CoordIO.DistanceBetweenCounties[InitialCounty];
-        double[] Exported = new double[CoordIO.Counties.length];
+        double[] Distances = CountyDataIO.DistanceBetweenCounties[InitialCounty];
+        double[] Exported = new double[CountyDataIO.Counties.length];
         ArrayList<Integer> CountyWithinRange = new ArrayList<>();
 
-        for (int i = 0; i < CoordIO.Counties.length; i++) {
+        for (int i = 0; i < CountyDataIO.Counties.length; i++) {
             if(Distances[i]<150){
                 CountyWithinRange.add(i);
             }
@@ -362,8 +362,8 @@ public class CommuteBackup {
         double[] Relative_commuters = new double[CountyWithinRange.size()];
 
         for (int DestinationCounty = 0; DestinationCounty < CountyWithinRange.size(); DestinationCounty++) {
-            double Population = CoordIO.Counties[DestinationCounty].getPopulation();
-            double Distance = CoordIO.DistanceBetweenCounties[InitialCounty][CountyWithinRange.get(DestinationCounty)];
+            double Population = CountyDataIO.Counties[DestinationCounty].getPopulation();
+            double Distance = CountyDataIO.DistanceBetweenCounties[InitialCounty][CountyWithinRange.get(DestinationCounty)];
             double Weight = getWeight(InitialCounty, DestinationCounty, Distance);
             Relative_commuters[DestinationCounty] = Weight;
         }
@@ -387,7 +387,7 @@ public class CommuteBackup {
             Dist += GammaDist.getGammaFunction(Parameters.MedianDistance_of_Travel_for_Commute)[(int) Distance - 10 + i];
         }
 
-        double DestinationPopulation = CoordIO.Counties[DestinationCounty].getPopulation();
+        double DestinationPopulation = CountyDataIO.Counties[DestinationCounty].getPopulation();
 
         Weight = Dist * DestinationPopulation;
 

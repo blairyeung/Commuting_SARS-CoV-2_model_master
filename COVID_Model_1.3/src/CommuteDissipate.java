@@ -1,10 +1,10 @@
 public class CommuteDissipate {
     public double[][] getCommuteArray(){
-        double[][] CommuteArray = new double[2][CoordIO.Counties.length];
+        double[][] CommuteArray = new double[2][CountyDataIO.Counties.length];
 
-        for (int i = 0; i < CoordIO.Counties.length; i++) {
-            int Resident_County_Population = CoordIO.Counties[i].getPopulation();
-            int Work_County_Population = CoordIO.Counties[i].getPopulation();
+        for (int i = 0; i < CountyDataIO.Counties.length; i++) {
+            int Resident_County_Population = CountyDataIO.Counties[i].getPopulation();
+            int Work_County_Population = CountyDataIO.Counties[i].getPopulation();
         }
         return CommuteArray;
     }
@@ -17,8 +17,8 @@ public class CommuteDissipate {
          * Draw a circle with a diameter of 200km
          */
 
-        for (int i = 0; i < CoordIO.Counties.length; i++) {
-            double[] Coords = CoordIO.Counties[i].getCoordinate();
+        for (int i = 0; i < CountyDataIO.Counties.length; i++) {
+            double[] Coords = CountyDataIO.Counties[i].getCoordinate();
 
         }
 

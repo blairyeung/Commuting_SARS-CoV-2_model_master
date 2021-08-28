@@ -1,8 +1,6 @@
 public class SingleCountyTest {
     public static void main(String[] args) {
         Main.Day = 0;
-        CoordIO I = new CoordIO();
-        IO io = new IO();
         County C = new County(100000,0);
 
         String path = "K:\\Ontario Model\\Single_County_Test\\";
