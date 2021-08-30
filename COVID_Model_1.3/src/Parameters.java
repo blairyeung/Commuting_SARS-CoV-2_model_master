@@ -14,6 +14,10 @@ public class Parameters {
     static public double Transmissbility[] = {0.025,0.025*1.66};
     static public int DataPackSize = 24;
 
+    static public double[] input2 = {0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625};
+    static public double[] input3 = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+
+
     static public int Total_number_of_variants = 2;
 
     final static public double MedianDistance_of_Travel_for_Commute = 12.9;

@@ -7,10 +7,8 @@
     <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CommuteBackup.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CommuteBackup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CommuteDissipate.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CommuteDissipate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/SingleCountyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/SingleCountyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxiliary.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxiliary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Commute_IO">
+  <component name="RunManager" selected="Application.Ontario_past_data_IO">
     <configuration name="Commute_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <option name="MAIN_CLASS_NAME" value="Commute_IO" />
@@ -115,11 +113,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ontario_past_data_IO" />
         <item itemvalue="Application.Commute_IO" />
         <item itemvalue="Application.IO" />
         <item itemvalue="Application.CountyDataIO" />
         <item itemvalue="Application.Function" />
-        <item itemvalue="Application.Ontario_past_data_IO" />
       </list>
     </recent_temporary>
   </component>
