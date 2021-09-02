@@ -6,6 +6,8 @@ public class CountyData {
     private int Population;
     private int County_Type;
     private int County_Category;/**Larger CMA, CA, or MIZ*/
+    private CountyDataArray Past_data_series;
+    private CountyDataArray Predicted_data_series;
 
     /**
      * @param Name
@@ -44,6 +46,29 @@ public class CountyData {
         this.County_Category = County_Cateogyry;/**Larger CMA, CA, or MIZ*/
     }
 
+    public CountyData(int County_ID, String Name, int District, double[] Coordinate, int Population, int County_Type, int County_Cateogyry, CountyDataArray Past_data_series){
+        this.ID = County_ID;
+        this.Name = Name;/**Name_of_the_county*/
+        this.District = District;/**Code_of_the_district*/
+        this.Coordinate = Coordinate;/**Geographical_coordinate*/
+        this.Population = Population;/**Total_population*/
+        this.County_Type = County_Type;/**County_of_the_county: urban/rural*/
+        this.County_Category = County_Cateogyry;/**Larger CMA, CA, or MIZ*/
+        this.Past_data_series = Past_data_series;/**Past data of this county*/
+    }
+
+    public CountyData(int County_ID, String Name, int District, double[] Coordinate, int Population, int County_Type, int County_Cateogyry, CountyDataArray Past_data_series, CountyDataArray Predicted_data_series){
+        this.ID = County_ID;
+        this.Name = Name;/**Name_of_the_county*/
+        this.District = District;/**Code_of_the_district*/
+        this.Coordinate = Coordinate;/**Geographical_coordinate*/
+        this.Population = Population;/**Total_population*/
+        this.County_Type = County_Type;/**County_of_the_county: urban/rural*/
+        this.County_Category = County_Cateogyry;/**Larger CMA, CA, or MIZ*/
+        this.Past_data_series = Past_data_series;/**Past data of this county*/
+        this.Predicted_data_series = Predicted_data_series;/**Future prediction of this county*/
+    }
+
     public void setCounty_Category(int county_Category) {
         County_Category = county_Category;
     }
@@ -59,5 +84,25 @@ public class CountyData {
     public int getCounty_Type(){return County_Type;}
     public int getCounty_Category() {
         return County_Category;
+    }
+
+    public void setPast_data_series(Data past_data,  int Date) {
+        Past_data_series.setDataWithinSeries(Date, past_data);
+    }
+
+    public void setPredicted_data_series(Data predicted_data, int Date) {
+        Predicted_data_series.setDataWithinSeries(Date, predicted_data);
+    }
+
+    public void setPredicted_data_series(CountyDataArray predicted_data_series, int Date) {
+        Predicted_data_series = predicted_data_series;
+    }
+
+    public CountyDataArray getPast_data_series() {
+        return Past_data_series;
+    }
+
+    public CountyDataArray getPredicted_data_series() {
+        return Predicted_data_series;
     }
 }

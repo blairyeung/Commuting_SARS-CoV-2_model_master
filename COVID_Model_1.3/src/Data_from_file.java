@@ -42,25 +42,25 @@ public class Data_from_file {
 
     public Data_from_file(Date date){
         this.date = date;
-        Percentage_vaccinated_one_dose = new double[Age_band_count];
-        Percentage_vaccinated_two_dose = new double[Age_band_count];
+        Percentage_vaccinated_one_dose = new double[this.Age_band_count];
+        Percentage_vaccinated_two_dose = new double[this.Age_band_count];
 
-        Unadjusted_cases_by_PHU = new int[PHU_count];
-        Unadjusted_deaths_by_PHU = new int[PHU_count];
-        Unadjusted_resolved_by_PHU = new int[PHU_count];
-        Adjusted_cases_by_PHU = new int[PHU_count];
-        Adjusted_deaths_by_PHU = new int[PHU_count];
-        Adjusted_resolved_by_PHU = new int[PHU_count];
+        Unadjusted_cases_by_PHU = new int[this.PHU_count];
+        Unadjusted_deaths_by_PHU = new int[this.PHU_count];
+        Unadjusted_resolved_by_PHU = new int[this.PHU_count];
+        Adjusted_cases_by_PHU = new int[this.PHU_count];
+        Adjusted_deaths_by_PHU = new int[this.PHU_count];
+        Adjusted_resolved_by_PHU = new int[this.PHU_count];
     }
 
-    /*public Data_from_file(int PHU_count, int Age_band_count){
+    public Data_from_file(int PHU_count, int Age_band_count){
         Unadjusted_cases_by_PHU = new int[PHU_count];
         Unadjusted_deaths_by_PHU = new int[PHU_count];
         Adjusted_cases_by_PHU = new int[PHU_count];
         Adjusted_deaths_by_PHU = new int[PHU_count];
         Percentage_vaccinated_one_dose = new double[Age_band_count];
         Percentage_vaccinated_two_dose = new double[Age_band_count];
-    }*/
+    }
 
     /**
      * @param unadjusted_cases_by_PHU

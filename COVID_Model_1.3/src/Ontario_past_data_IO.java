@@ -21,6 +21,17 @@ public class Ontario_past_data_IO {
     public static ArrayList<Date> Date_index = new ArrayList();
     public static ArrayList<Data_from_file> Ontario_data = new ArrayList();
 
+
+    //Adjust data by age band
+    public static double[] Adjustment_cases = new double[16];
+    public static double[] Adjustment_deaths = new double[16];
+    public static double[] Adjustment_resolved = new double[16];
+
+    public static double[] Variant_ratio = new double[Parameters.Total_number_of_variants];
+
+    public static CountyDataArray[] Ontario_past_data_array  = null;
+    //public static ArrayList<CountyDataArray> Ontario_past_data_array  = new ArrayList<>();
+
     public static void main(String[] args) {
         Ontario_Data_Input();
     }
@@ -239,7 +250,6 @@ public class Ontario_past_data_IO {
 
         Sort(Ontario_data);
 
-
         for(Data_from_file d: Ontario_data){
             System.out.println("Date: " + d.getDate());
             for (int i = 0; i < Age_band_name.length; i++) {
@@ -260,8 +270,41 @@ public class Ontario_past_data_IO {
     }
 
     public static void to_County(){
+        Ontario_past_data_array = new CountyDataArray[CountyDataIO.Counties.length];
+        for (int County_Code = 0; County_Code < CountyDataIO.Counties.length; County_Code++) {
+            for (int date = 0; date < Date_index.size(); date++) {
+                Data_from_file today_data = Ontario_data.get(date);
+                CountyData data = CountyDataIO.Counties[County_Code];
+                int ID = CountyDataIO.DistrictCode.indexOf(data.getDistrict());
+                int PHU_index =  PHU.PHU_by_Division[ID];
+                double incidence = today_data.getAdjusted_cases_by_PHU(PHU_index);
+                double deaths = today_data.getAdjusted_deaths_by_PHU(PHU_index);
+                double resolved = today_data.getAdjusted_resolved_by_PHU(PHU_index);
 
+                Data today_county_data = new Data();
+                for (int Age_band = 0; Age_band < 16; Age_band++) {
+                    int Relocated_age_band;
+                    if((Relocated_age_band = Relocate_age_band(Age_band))!=-1){
+                        System.out.println(Relocated_age_band);
+                        double Vaccinated_one_dose_age_band = today_data.getPercentage_vaccinated_one_dose(Relocated_age_band);
+                        double Vaccinated_two_dose_age_band = today_data.getPercentage_vaccinated_two_dose(Relocated_age_band);
+                        double age_band_adjusted_incidence = incidence * Adjustment_cases[Age_band];
+                        double age_band_adjusted_deaths = deaths * Adjustment_deaths[Age_band];
+                        double age_band_adjusted_resolved = resolved * Adjustment_resolved[Age_band];
 
+                        for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
+                            today_county_data.setValueDataPackByAge(variant,Age_band,17,((int) Math.round(age_band_adjusted_incidence)));//Set incidence
+                            today_county_data.setValueDataPackByAge(variant,Age_band,18,((int) Math.round(age_band_adjusted_incidence)));//Set exposed
+                            today_county_data.setValueDataPackByAge(variant,Age_band,19,((int) Math.round(age_band_adjusted_incidence)));//Set active cases
+                            today_county_data.setValueDataPackByAge(variant,Age_band,21,((int) Math.round(age_band_adjusted_resolved)));//Set resolved
+                            today_county_data.setValueDataPackByAge(variant,Age_band,22,((int) Math.round(age_band_adjusted_deaths)));//Set deaths
+                            today_county_data.setValueDataPackByAge(variant,Age_band,23,((int) Math.round(age_band_adjusted_incidence)));//Set vaccinated one dose
+                            today_county_data.setValueDataPackByAge(variant,Age_band,24,((int) Math.round(age_band_adjusted_incidence)));//Set vaccinated two dose
+                        }
+                    }//Relocate age band to 8 super_age_bands
+                }
+            }
+        }
     }
 
     public static ArrayList<Data_from_file> Sort(ArrayList<Data_from_file> dateList){
@@ -269,5 +312,12 @@ public class Ontario_past_data_IO {
                 return a1.getDate().compareTo(a2.getDate());
             });
             return dateList;
+    }
+
+   public static int Relocate_age_band(int AgeBand){
+       /**
+        * dr zhu plz finish this
+        */
+        return 0;
     }
 }

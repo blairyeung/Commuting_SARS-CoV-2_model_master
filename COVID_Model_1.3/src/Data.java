@@ -52,7 +52,8 @@ public class Data {
         DataPack[20] = 0;/**Daily Critical Cases*/
         DataPack[21] = 0;/**Daily Resolved*/
         DataPack[22] = 0;/**Daily Death*/
-        DataPack[23] = 0;/**Daily Vaccinated*/
+        DataPack[23] = 0;/**Daily Vaccinated One Dose*/
+        DataPack[24] = 0;/**Daily Vaccinated Two Dose*/
 
 
         for (int i = 0; i < 2; i++) {
@@ -108,7 +109,8 @@ public class Data {
         DataPack[20] = 0;/**Daily Critical Cases*/
         DataPack[21] = 0;/**Daily Resolved*/
         DataPack[22] = 0;/**Daily Death*/
-        DataPack[23] = 0;/**Daily Vaccinated*/
+        DataPack[23] = 0;/**Daily Vaccinated One Dose*/
+        DataPack[23] = 0;/**Daily Vaccinated Two Dose*/
 
 
 
@@ -168,7 +170,8 @@ public class Data {
         DataPack[20] = 0;/**Daily Resolved*/
         DataPack[21] = 0;/**Daily Critical Cases*/
         DataPack[22] = 0;/**Daily Death*/
-        DataPack[23] = 0;/**Daily Vaccinated*/
+        DataPack[23] = 0;/**Daily Vaccinated One Dose*/
+        DataPack[24] = 0;/**Daily Vaccinated Two Dose*/
 
 
 
@@ -237,7 +240,8 @@ public class Data {
         DataPack[20] = 0;/**Daily Resolved*/
         DataPack[21] = 0;/**Daily Critical Cases*/
         DataPack[22] = 0;/**Daily Death*/
-        DataPack[23] = 0;/**Daily Vaccinated*/
+        DataPack[23] = 0;/**Daily Vaccinated One Dose*/
+        DataPack[24] = 0;/**Daily Vaccinated Two Dose*/
 
         for (int i = 0; i < 16; i++) {
             DataPackByAge[0][1][i] = (int) ((double) Population * Parameters.Population_By_Age[i]);
@@ -308,7 +312,9 @@ public class Data {
         DataPack[20] = 0;/**Daily Resolved*/
         DataPack[21] = 0;/**Daily Critical Cases*/
         DataPack[22] = 0;/**Daily Death*/
-        DataPack[23] = 0;/**Daily Vaccinated*/
+        DataPack[23] = 0;/**Daily Vaccinated One Dose*/
+        DataPack[24] = 0;/**Daily Vaccinated Two Dose*/
+
         for (int i = 0; i < 16; i++) {
             DataPackByAge[0][1][i] = (int) ((double) Population * Parameters.Population_By_Age[i]);
         }
@@ -367,6 +373,12 @@ public class Data {
 
     public void addValueDataPackByAge(int Variant_index,int AgeBand_index, int Index, double Delta_Value){
         DataPackByAge[Variant_index][Index][AgeBand_index] += Delta_Value;
+    }
+
+    public void reCalculate(){
+        /**
+         * recalculate total value from age_specific data
+         */
     }
 
 }

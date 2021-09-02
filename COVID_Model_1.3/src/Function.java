@@ -1,16 +1,21 @@
+import javax.swing.text.Element;
 import javax.swing.text.Segment;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Function {
     public static void main(String[] args) {
-        ArrayList i = Buffered_IO(Parameters.ReadPath + "GeoCode.csv");
+        /* ArrayList i = Buffered_IO(Parameters.ReadPath + "GeoCode.csv");
         for (int i1 = 0; i1 < i.size(); i1++) {
             System.out.println(i.get(i1));
-        }
+        }*/
         /*for (int i = 0; i < 24; i++) {
             System.out.println(findGuassianBlur(Parameters.Travel_distance_distribution_full, i));
         }*/
@@ -158,6 +163,16 @@ public class Function {
         return -1;
     }
 
+    public static int index_of_object_in_array(int target, int[] Array){
+        for (int i = 0; i < Array.length; i++) {
+            Object o = Array[i];
+            if(o.equals(target)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static ArrayList<String> Buffered_IO(String Path){
        return Buffered_IO(Path,false);
     }
@@ -203,6 +218,14 @@ public class Function {
             //System.out.println(list.get(i));
         }
         return list;
+    }
+
+    public static String getName(Object obj){
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (int i = 0; i < fields.length; i++) {
+            System.out.println(fields[i].getName());
+        }
+        return fields[0].getName();
     }
 }
 
