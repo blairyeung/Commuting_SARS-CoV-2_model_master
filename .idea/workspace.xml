@@ -4,18 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Updated">
+    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Version 1.5">
+      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/GaussianDist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Kernel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyData.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Function.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Function.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/GuassianDist.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/GuassianDist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxili.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxili.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyData.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Data_from_file.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Data_from_file.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/GuassianDist.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/GuassianDist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,18 +63,10 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Function">
-    <configuration name="Commute_IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Kernel">
+    <configuration name="Data_from_file" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
-      <option name="MAIN_CLASS_NAME" value="Commute_IO" />
-      <module name="Commuting_SARS-CoV-2_model_master" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CountyDataIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
-      <option name="MAIN_CLASS_NAME" value="CountyDataIO" />
+      <option name="MAIN_CLASS_NAME" value="Data_from_file" />
       <module name="Commuting_SARS-CoV-2_model_master" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,9 +80,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Kernel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
-      <option name="MAIN_CLASS_NAME" value="IO" />
+      <option name="MAIN_CLASS_NAME" value="Kernel" />
       <module name="Commuting_SARS-CoV-2_model_master" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,6 +105,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PHU" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
+      <option name="MAIN_CLASS_NAME" value="PHU" />
+      <module name="Commuting_SARS-CoV-2_model_master" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <module name="Commuting_SARS-CoV-2_model_master" />
@@ -108,18 +123,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Ontario_past_data_IO" />
-      <item itemvalue="Application.IO" />
-      <item itemvalue="Application.Commute_IO" />
       <item itemvalue="Application.Function" />
-      <item itemvalue="Application.CountyDataIO" />
+      <item itemvalue="Application.PHU" />
+      <item itemvalue="Application.Data_from_file" />
+      <item itemvalue="Application.Kernel" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Function" />
+        <item itemvalue="Application.Kernel" />
         <item itemvalue="Application.Ontario_past_data_IO" />
-        <item itemvalue="Application.Commute_IO" />
-        <item itemvalue="Application.IO" />
-        <item itemvalue="Application.CountyDataIO" />
+        <item itemvalue="Application.Data_from_file" />
+        <item itemvalue="Application.PHU" />
+        <item itemvalue="Application.Function" />
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +203,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630300486086</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Version 1.5">
+      <created>1630550025511</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1630550025511</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Version 1.5">
+      <created>1630550035722</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1630550035722</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,7 +239,8 @@
     <MESSAGE value="Runnable (supposedly)" />
     <MESSAGE value="Path for mac" />
     <MESSAGE value="Updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
+    <MESSAGE value="Version 1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 1.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,6 +253,11 @@
           <url>file://$PROJECT_DIR$/COVID_Model_1.3/src/Data.java</url>
           <line>30</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java</url>
+          <line>326</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

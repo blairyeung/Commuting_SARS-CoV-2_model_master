@@ -12,7 +12,7 @@ public class Parameters {
     static public String ReadPath = "Model IO/";
     static public String WritePath = "Model Output/";
     static public double Transmissbility[] = {0.025,0.025*1.66};
-    static public int DataPackSize = 24;
+    static public int DataPackSize = 25;
 
     static public double[] input2 = {0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625};
     static public double[] input3 = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};

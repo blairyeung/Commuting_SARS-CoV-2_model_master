@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 public class Ontario_past_data_IO {
+
     /**
-     * @param args
-     * Read all data from the
-     */
+     * Read all data from the 
+     */ 
 
     final public static String[] Age_band_name = {"12-17yrs","18-29yrs","30-39yrs","40-49yrs","50-59yrs", "60-69yrs", "70-79yrs", "80+"};
     public static ArrayList[] Vaccniated_by_age_band = new ArrayList[Age_band_name.length];
@@ -29,6 +29,8 @@ public class Ontario_past_data_IO {
 
     public static double[] Variant_ratio = new double[Parameters.Total_number_of_variants];
 
+    public static ArrayList[] Population_ratio_by_PHU = null;
+
     public static CountyDataArray[] Ontario_past_data_array  = null;
     //public static ArrayList<CountyDataArray> Ontario_past_data_array  = new ArrayList<>();
 
@@ -37,8 +39,13 @@ public class Ontario_past_data_IO {
     }
 
     public static void Ontario_Data_Input(){
+        /**
+         * Load dependency
+         */
         CountyDataIO.CountyData_IO_Input();
         PHU.PHU_IO_Input();
+
+        Population_ratio_by_PHU = new ArrayList[PHU.Number_of_PHUs];
 
         Vaccination_data_IO();
         Incidence_data_IO();
@@ -88,7 +95,6 @@ public class Ontario_past_data_IO {
 
             if(!str.contains("Undisclosed_or_missing")&&!str.contains("plus")){
                 /**Excl the data that does not contain age information*/
-                //System.out.println(str);
                 String[] Stratified = Function.Stratification(str,Length);
                 Date date = null;
 
@@ -318,6 +324,30 @@ public class Ontario_past_data_IO {
        /**
         * dr zhu plz finish this
         */
-        return 0;
+       String[] Age_band_name = {"12-17yrs","18-29yrs","30-39yrs","40-49yrs","50-59yrs", "60-69yrs", "70-79yrs", "80+"};
+       String[] Age_band = {"0 to 4","5 to 9","10 to 14","15 to 19","20 to 24","25 to 29","30 to 34","35 to 39","40 to 44","45 to 49","50 to 54","55 to 59","60 to 64","65 to 69","70 to 74","75+"};
+
+       switch (AgeBand){
+           case 0, 1:
+               /**
+                *
+                */
+               return -1;
+           case 2:
+               return 0;
+           case 3:
+
+       }
+
+       return 0;
+    }
+
+    public static double[] getAgebandBais(int AgeBand){
+        switch (AgeBand){
+            case 0, 1:
+                return new double[]{-1,0};
+
+        }
+        return new double[2];
     }
 }

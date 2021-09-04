@@ -48,7 +48,7 @@ public class Function {
     }
 
     public static double findGuassianBlur(double[] Input, int Median){
-        double[] GuassianArr = GuassianDist.GetGuassianDist(Median);
+        double[] GuassianArr = GaussianDist.GetGaussianDist(Median, 20);
         double[] Output = new double[Input.length];
         double Sum = 0;
         for (int i = 0; i < Input.length; i++) {
