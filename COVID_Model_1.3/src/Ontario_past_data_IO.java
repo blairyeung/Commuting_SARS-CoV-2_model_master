@@ -16,7 +16,8 @@ public class Ontario_past_data_IO {
      */ 
 
     final public static String[] Age_band_name = {"12-17yrs","18-29yrs","30-39yrs","40-49yrs","50-59yrs", "60-69yrs", "70-79yrs", "80+"};
-    public static ArrayList[] Vaccniated_by_age_band = new ArrayList[Age_band_name.length];
+
+    public static ArrayList[] Vaccinated_by_age_band = new ArrayList[Age_band_name.length];
     public static ArrayList[] Incidence_by_PHU = new ArrayList[Age_band_name.length];
     public static ArrayList<Date> Date_index = new ArrayList();
     public static ArrayList<Data_from_file> Ontario_data = new ArrayList();
@@ -34,6 +35,9 @@ public class Ontario_past_data_IO {
     public static CountyDataArray[] Ontario_past_data_array  = null;
     //public static ArrayList<CountyDataArray> Ontario_past_data_array  = new ArrayList<>();
 
+    public static double[] Age_band_ratio_array = null;
+    public static ArrayList<Double> Age_band_ratio = new ArrayList<>();
+
     public static void main(String[] args) {
         Ontario_Data_Input();
     }
@@ -49,7 +53,9 @@ public class Ontario_past_data_IO {
 
         Vaccination_data_IO();
         Incidence_data_IO();
+        Age_specific_data_IO();
         to_County();
+
     }
 
     public static void Vaccination_data_IO(){
@@ -57,7 +63,7 @@ public class Ontario_past_data_IO {
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
 
         for (int age_band = 0; age_band < Age_band_name.length; age_band++) {
-            Vaccniated_by_age_band[age_band] = new ArrayList<Double[]>();
+            Vaccinated_by_age_band[age_band] = new ArrayList<Double[]>();
         }
 
         ArrayList<String> vaccination_list = new ArrayList<>();
@@ -291,7 +297,7 @@ public class Ontario_past_data_IO {
                 for (int Age_band = 0; Age_band < 16; Age_band++) {
                     int Relocated_age_band;
                     if((Relocated_age_band = Relocate_age_band(Age_band))!=-1){
-                        System.out.println(Relocated_age_band);
+                        //System.out.println(Relocated_age_band);
                         double Vaccinated_one_dose_age_band = today_data.getPercentage_vaccinated_one_dose(Relocated_age_band);
                         double Vaccinated_two_dose_age_band = today_data.getPercentage_vaccinated_two_dose(Relocated_age_band);
                         double age_band_adjusted_incidence = incidence * Adjustment_cases[Age_band];
@@ -320,7 +326,27 @@ public class Ontario_past_data_IO {
             return dateList;
     }
 
-   public static int Relocate_age_band(int AgeBand){
+
+    public static void Age_specific_data_IO(){
+        String Path = Parameters.ReadPath + "Canada_population_by_age.csv";
+        ArrayList<String> Buffer = Function.Buffered_IO(Path,false);
+        ArrayList<Double> Population_by_age_band = new ArrayList<>();
+
+        for (int line = 0; line < Buffer.size(); line++) {
+            //System.out.println(Buffer.get(line));
+            Population_by_age_band.add((double) Math.round(Double.parseDouble(Buffer.get(line))));
+        }
+
+        Age_band_ratio = Function.Normalization(Population_by_age_band);
+
+        for (int line = 0; line < Age_band_ratio.size(); line++) {
+            System.out.println(Age_band_ratio.get(line));
+        }
+        Age_band_ratio_array = ArrayListToArray.toArray(Age_band_ratio, Age_band_ratio_array);
+    }
+
+
+    public static int Relocate_age_band(int AgeBand){
        /**
         * dr zhu plz finish this
         */

@@ -20,6 +20,7 @@ public class Function {
             System.out.println(findGuassianBlur(Parameters.Travel_distance_distribution_full, i));
         }*/
     }
+
     public static double[] Normalization(double[] Array){
         double Sum = 0;
         for (int i = 0; i < Array.length; i++) {
@@ -28,6 +29,19 @@ public class Function {
         for (int i = 0; i < Array.length; i++) {
             if(Array[i]!=0){
                 Array[i]/=Sum;
+            }
+        }
+        return Array;
+    }
+
+    public static ArrayList<Double> Normalization(ArrayList<Double> Array){
+        double Sum = 0;
+        for (int i = 0; i < Array.size(); i++) {
+            Sum += Array.get(i);
+        }
+        for (int i = 0; i < Array.size(); i++) {
+            if(Array.get(i)!=0){
+                Array.set(i,Array.get(i)/Sum);
             }
         }
         return Array;

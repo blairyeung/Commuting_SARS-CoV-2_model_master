@@ -4,21 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Version 1.5">
-      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/GaussianDist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Kernel.java" afterDir="false" />
+    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="MLE">
+      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/Model IO/Canada_Population_by_age.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/New Text Document.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model IO/Canada_population_by_age.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyData.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Function.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Function.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/GuassianDist.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/GuassianDist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model/src/ArrayListToArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model/src/ArrayListToArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Auxili.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Auxili.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxili.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxili.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyData.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/SingleCountyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/SingleCountyTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/ArrayListToArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/ArrayListToArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/GuassianDist.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/GuassianDist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/SingleCountyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/SingleCountyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,23 +56,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Kernel">
-    <configuration name="Data_from_file" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Ontario_past_data_IO">
+    <configuration name="CountyDataIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
-      <option name="MAIN_CLASS_NAME" value="Data_from_file" />
+      <option name="MAIN_CLASS_NAME" value="CountyDataIO" />
       <module name="Commuting_SARS-CoV-2_model_master" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Function" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Data_from_file" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
-      <option name="MAIN_CLASS_NAME" value="Function" />
+      <option name="MAIN_CLASS_NAME" value="Data_from_file" />
       <module name="Commuting_SARS-CoV-2_model_master" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,18 +121,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Ontario_past_data_IO" />
-      <item itemvalue="Application.Function" />
       <item itemvalue="Application.PHU" />
       <item itemvalue="Application.Data_from_file" />
       <item itemvalue="Application.Kernel" />
+      <item itemvalue="Application.CountyDataIO" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Kernel" />
         <item itemvalue="Application.Ontario_past_data_IO" />
+        <item itemvalue="Application.CountyDataIO" />
+        <item itemvalue="Application.Kernel" />
         <item itemvalue="Application.Data_from_file" />
         <item itemvalue="Application.PHU" />
-        <item itemvalue="Application.Function" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630550035722</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="MLE">
+      <created>1630733290697</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1630733290697</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,7 +245,8 @@
     <MESSAGE value="Path for mac" />
     <MESSAGE value="Updated" />
     <MESSAGE value="Version 1.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 1.5" />
+    <MESSAGE value="MLE" />
+    <option name="LAST_COMMIT_MESSAGE" value="MLE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -253,11 +259,6 @@
           <url>file://$PROJECT_DIR$/COVID_Model_1.3/src/Data.java</url>
           <line>30</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java</url>
-          <line>326</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

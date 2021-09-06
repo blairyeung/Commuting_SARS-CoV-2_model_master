@@ -7,7 +7,7 @@ public class SingleCountyTest {
 
         Trail trailData = new Trail(0,1);
 
-        path += "Iteration " + trailData.getModel_Iteratons() + "\\" + "Trail " + trailData.getTrail_Code() + "\\";
+        path += "Iteration " + trailData.getModel_Iteratons() + "\\" + "T rail " + trailData.getTrail_Code() + "\\";
 
         String By_Age = path + "File_by_age\\";
         String By_Category = path + "File_by_category\\";
