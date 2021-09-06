@@ -54,6 +54,7 @@ public class Ontario_past_data_IO {
         Vaccination_data_IO();
         Incidence_data_IO();
         Age_specific_data_IO();
+        Calculated_age_band_ratio();
         to_County();
 
     }
@@ -343,6 +344,42 @@ public class Ontario_past_data_IO {
             System.out.println(Age_band_ratio.get(line));
         }
         Age_band_ratio_array = ArrayListToArray.toArray(Age_band_ratio, Age_band_ratio_array);
+    }
+
+    public static void Calculated_age_band_ratio(){
+        String[] Age_band_name = {"12-17yrs","18-29yrs","30-39yrs","40-49yrs","50-59yrs", "60-69yrs", "70-79yrs", "80+"};
+        String[] Age_band = {"0 to 4","5 to 9","10 to 14","15 to 19","20 to 24","25 to 29","30 to 34","35 to 39","40 to 44","45 to 49","50 to 54","55 to 59","60 to 64","65 to 69","70 to 74","75+"};
+
+        double Age_band_ratio_eight[] = new double[Age_band_name.length];
+        double Age_band_ratio_sixteen[] = new double[Age_band.length];
+
+        for (int i = 0; i < Age_band.length - 1; i++) {
+            String Interval = Age_band[i];
+            int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("to")-1));
+            int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("to")+3));
+            System.out.println("Start_age = " + Start_age);
+            System.out.println("End_age = " + End_age);
+
+            double Subtotal = 0;
+
+            for (int age = Start_age; age < End_age; age++) {
+                Subtotal += Age_band_ratio_array[age];
+            }
+        }
+
+        /*for (int i = 0; i < Age_band_name.length - 1; i++) {
+            String Interval = Age_band_name[i];
+            int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("-")));
+            int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("-")+1,Interval.indexOf("yrs")));
+            System.out.println("Start_age = " + Start_age);
+            System.out.println("End_age = " + End_age);
+
+            double Subtotal = 0;
+
+            for (int age = Start_age; age < End_age; age++) {
+                Subtotal += Age_band_ratio_array[age];
+            }
+        }*/
     }
 
 
