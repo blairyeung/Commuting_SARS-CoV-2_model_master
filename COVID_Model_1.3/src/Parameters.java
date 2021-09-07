@@ -42,6 +42,8 @@ public class Parameters {
     static public double Population_By_Age[] = {0.0491,0.0518,0.0538,0.0579,0.0706,0.0731,0.0707,0.0674,0.0625,0.0633,0.0657,0.0729,0.0652,0.0546,0.0455,0.0759};
     static public double Susceptibility[] = {0.375,0.3875,0.6,0.7,0.8,0.825,0.85,0.845,0.84,0.85,0.85,0.84,0.3,0.81,0.72,0.9};
     static public String[] AgeBand = {"0 to 4","5 to 9","10 to 14","15 to 19","20 to 24","25 to 29","30 to 34","35 to 39","40 to 44","45 to 49","50 to 54","55 to 59","60 to 64","65 to 69","70 to 74","75+"};
+    static public double[] Ontario_population_by_age = {723016, 762654, 792947, 852405, 1039661, 1077433, 1041952, 992844, 921378, 932058, 968546, 1073519, 961243, 803962, 673546, 1116850};
+
 
     static public double Immunity_level_half_life = 224;
 

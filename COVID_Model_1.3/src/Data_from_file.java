@@ -96,6 +96,14 @@ public class Data_from_file {
         Adjusted_resolved_by_PHU[PHU_index] = adjusted_resolved_by_PHU;
     }
 
+    public void setPercentage_vaccinated_one_dose_by_age(double[] percentage_vaccinated_one_dose) {
+        Percentage_vaccinated_one_dose = percentage_vaccinated_one_dose;
+    }
+
+    public void setPercentage_vaccinated_two_dose_by_age(double[] percentage_vaccinated_two_dose) {
+        Percentage_vaccinated_two_dose = percentage_vaccinated_two_dose;
+    }
+
     /**
      * @param percentage_vaccinated_one_dose
      * @param Age_Band
@@ -124,6 +132,14 @@ public class Data_from_file {
             Adjusted_deaths_by_PHU[PHU_code] = (int) ((double)Unadjusted_deaths_by_PHU[PHU_code] * Adjust_ratio_death);
             Adjusted_resolved_by_PHU[PHU_code] = (int) ((double)Unadjusted_resolved_by_PHU[PHU_code] * Adjust_ratio_case);
         }
+    }
+
+    public double[] getPercentage_vaccinated_one_dose() {
+        return Percentage_vaccinated_one_dose;
+    }
+
+    public double[] getPercentage_vaccinated_two_dose() {
+        return Percentage_vaccinated_two_dose;
     }
 
     /**

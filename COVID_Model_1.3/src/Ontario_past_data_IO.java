@@ -16,6 +16,7 @@ public class Ontario_past_data_IO {
      */ 
 
     final public static String[] Age_band_name = {"12-17yrs","18-29yrs","30-39yrs","40-49yrs","50-59yrs", "60-69yrs", "70-79yrs", "80+"};
+    final public static String[] Age_band_name_output = Parameters.AgeBand;
 
     public static ArrayList[] Vaccinated_by_age_band = new ArrayList[Age_band_name.length];
     public static ArrayList[] Incidence_by_PHU = new ArrayList[Age_band_name.length];
@@ -37,6 +38,8 @@ public class Ontario_past_data_IO {
 
     public static double[] Age_band_ratio_array = null;
     public static ArrayList<Double> Age_band_ratio = new ArrayList<>();
+    public static double[] Age_vaccination_ratio_first = null;
+    public static double[] Age_vaccination_ratio_second = null;
 
     public static void main(String[] args) {
         Ontario_Data_Input();
@@ -51,9 +54,9 @@ public class Ontario_past_data_IO {
 
         Population_ratio_by_PHU = new ArrayList[PHU.Number_of_PHUs];
 
+        Age_specific_data_IO();
         Vaccination_data_IO();
         Incidence_data_IO();
-        Age_specific_data_IO();
         Calculated_age_band_ratio();
         to_County();
 
@@ -73,33 +76,13 @@ public class Ontario_past_data_IO {
         String Path = Parameters.ReadPath + "vaccines_by_age.csv";
         System.out.println(Path);
 
-        FileReader read = null;
-        try {
-            read = new FileReader(Path);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader buffread = new BufferedReader(read);
+        ArrayList<String> Lines = Function.Buffered_IO(Path);
 
-        String str = null;
-
-        try {
-            str = buffread.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(str);
-
+        String str = Lines.get(0);
         int Length = Function.Column_count(str);
 
-        while (true) {
-            try {
-                if (!((str = buffread.readLine()) != null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+        for (int line = 1; line < Lines.size(); line++) {
+             str = Lines.get(line);
             if(!str.contains("Undisclosed_or_missing")&&!str.contains("plus")){
                 /**Excl the data that does not contain age information*/
                 String[] Stratified = Function.Stratification(str,Length);
@@ -128,6 +111,69 @@ public class Ontario_past_data_IO {
                 Ontario_data.get(index).setPercentage_vaccinated_one_dose_by_age(one_dose,age_group_index);
                 Ontario_data.get(index).setPercentage_vaccinated_two_dose_by_age(two_dose,age_group_index);
             }
+        }
+
+        for (int day = 0; day < Ontario_data.size(); day++) {
+
+            Age_vaccination_ratio_first = new double[Age_band_ratio.size()];
+            Age_vaccination_ratio_second = new double[Age_band_ratio.size()];
+
+            Data_from_file this_day = Ontario_data.get(day);
+            double[] first_dose = this_day.getPercentage_vaccinated_one_dose();
+            double[] second_dose = this_day.getPercentage_vaccinated_two_dose();
+
+            for (int i = 0; i < Age_band_name.length - 1; i++) {
+                String Interval = Age_band_name[i];
+                int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("-")));
+                int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("-")+1,Interval.indexOf("yrs")));
+                System.out.println("Start_age = " + Start_age);
+                System.out.println("End_age = " + End_age);
+
+                for (int age = Start_age; age < End_age; age++) {
+                    Age_vaccination_ratio_first[age] =  first_dose[i];
+                    Age_vaccination_ratio_second[age] =  second_dose[i];
+                }
+            }
+
+            double One_dose_array[] = new double[Age_band_name_output.length];
+            double Two_dose_array[] = new double[Age_band_name_output.length];
+
+
+            for (int i = 0; i < Age_band_name_output.length - 1; i++) {
+                String Interval = Age_band_name_output[i];
+                System.out.println(Interval);
+                int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("to")-1));
+                int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("to")+3));
+                System.out.println("Start_age = " + Start_age);
+                System.out.println("End_age = " + End_age);
+                double first_dose_vaccinated_subtotal = 0;
+                double second_dose_vaccinated_subtotal = 0;
+                double population_subtotal = Parameters.Ontario_population_by_age[i];/**Population import from statistics canada*/
+                for (int age = Start_age; age < End_age; age++) {
+                    first_dose_vaccinated_subtotal += (Age_vaccination_ratio_first[age]/population_subtotal);
+                    second_dose_vaccinated_subtotal += (Age_vaccination_ratio_second[age]/population_subtotal);
+                }
+                One_dose_array[i] = first_dose_vaccinated_subtotal;
+                Two_dose_array[i] = second_dose_vaccinated_subtotal;
+            }
+
+            int Start_age = 75;
+            int End_age = Age_vaccination_ratio_first.length;
+
+            double first_dose_vaccinated_subtotal = 0;
+            double second_dose_vaccinated_subtotal = 0;
+            double population_subtotal = Parameters.Ontario_population_by_age[Age_band_name_output.length-1];/**Population import from statistics canada*/
+
+            for (int age = Start_age; age < End_age; age++) {
+                first_dose_vaccinated_subtotal += (Age_vaccination_ratio_first[age]/population_subtotal);
+                second_dose_vaccinated_subtotal += (Age_vaccination_ratio_second[age]/population_subtotal);
+            }
+
+            One_dose_array[Age_band_name_output.length-1] = first_dose_vaccinated_subtotal;
+            Two_dose_array[Age_band_name_output.length-1] = second_dose_vaccinated_subtotal;
+
+            this_day.setPercentage_vaccinated_one_dose_by_age(One_dose_array);
+            this_day.setPercentage_vaccinated_two_dose_by_age(Two_dose_array);
         }
     }
 
@@ -159,35 +205,15 @@ public class Ontario_past_data_IO {
         ArrayList<String> status_list = new ArrayList<>();
 
         String Path = Parameters.ReadPath + "cases_by_status_and_phu.csv";
-        System.out.println(Path);
 
-        FileReader read = null;
-        try {
-            read = new FileReader(Path);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader buffread = new BufferedReader(read);
+        ArrayList<String> Lines = Function.Buffered_IO(Path);
 
-        String str = null;
-
-        try {
-            str = buffread.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(str);
+        String str = Lines.get(0);
 
         int Length = Function.Column_count(str);
 
-        while (true) {
-            try {
-                if (!((str = buffread.readLine()) != null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+        for (int line = 1; line < Lines.size(); line++) {
+            str = Lines.get(line);
             if(!Ontario_data.isEmpty()){
                 String[] Stratified = Function.Stratification(str,Length);
                 Date date = null;
@@ -222,39 +248,6 @@ public class Ontario_past_data_IO {
                 Ontario_data.get(index).setUnadjusted_resolved_by_PHU(Integer.parseInt(Stratified[4]),PHU_index);
                 Ontario_data.get(index).setUnadjusted_deaths_by_PHU(Integer.parseInt(Stratified[5]),PHU_index);
             }
-
-            /*else {
-                if(!str.contains("Undisclosed_or_missing")&&!str.contains("plus")){
-                    //System.out.println(str);
-                    String[] Stratified = Function.Stratification(str,Length);
-                    Date date = null;
-
-                    try {
-                        date = date_format.parse(Stratified[0]);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-
-                    if(!Date_index.contains(date)){
-                        Date_index.add(date);
-                        Ontario_data.add(new Data_from_file(date));
-                    }
-
-                    String age_group = Stratified[1];
-                    int age_group_index = Function.index_of_object_in_array(Stratified[1],Age_band_name);
-                    double one_dose = Double.parseDouble(Stratified[2]);
-                    double two_dose = Double.parseDouble(Stratified[3]);
-                    System.out.print("Date:  " + date + "  ");
-                    System.out.print("Age:  " + age_group + "  ");
-                    System.out.print("One dose:  " + one_dose + "  ");
-                    System.out.println("Two dose:  " + two_dose + "  ");
-                    int index = Date_index.indexOf(date);
-                    Ontario_data.get(index).setPercentage_vaccinated_one_dose_by_age(one_dose,age_group_index);
-                    Ontario_data.get(index).setPercentage_vaccinated_two_dose_by_age(two_dose,age_group_index);
-                }
-            }*/
-
-
         }
 
         for (int i = 0; i < Ontario_data.size(); i++) {
@@ -305,6 +298,22 @@ public class Ontario_past_data_IO {
                         double age_band_adjusted_deaths = deaths * Adjustment_deaths[Age_band];
                         double age_band_adjusted_resolved = resolved * Adjustment_resolved[Age_band];
 
+                        Age_vaccination_ratio_first = new double[Age_band_ratio.size()];
+                        Age_vaccination_ratio_second = new double[Age_band_ratio.size()];
+
+                        /**
+                         * 需要写到today data里 在该method运行前执行
+                         */
+
+                        /*for (int i = 0; i < Age_band.length - 1; i++) {
+                            String Interval = Age_band[i];
+                            int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("to")-1));
+                            int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("to")+3));
+                            System.out.println("Start_age = " + Start_age);
+                            System.out.println("End_age = " + End_age);
+                            //Age_vaccination_ratio[Start_age];
+                        }*/
+
                         for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
                             today_county_data.setValueDataPackByAge(variant,Age_band,17,((int) Math.round(age_band_adjusted_incidence)));//Set incidence
                             today_county_data.setValueDataPackByAge(variant,Age_band,18,((int) Math.round(age_band_adjusted_incidence)));//Set exposed
@@ -329,7 +338,7 @@ public class Ontario_past_data_IO {
 
 
     public static void Age_specific_data_IO(){
-        String Path = Parameters.ReadPath + "Canada_population_by_age.csv";
+        String Path = Parameters.ReadPath + "Ontario_population_by_age.csv";
         ArrayList<String> Buffer = Function.Buffered_IO(Path,false);
         ArrayList<Double> Population_by_age_band = new ArrayList<>();
 
@@ -353,33 +362,7 @@ public class Ontario_past_data_IO {
         double Age_band_ratio_eight[] = new double[Age_band_name.length];
         double Age_band_ratio_sixteen[] = new double[Age_band.length];
 
-        for (int i = 0; i < Age_band.length - 1; i++) {
-            String Interval = Age_band[i];
-            int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("to")-1));
-            int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("to")+3));
-            System.out.println("Start_age = " + Start_age);
-            System.out.println("End_age = " + End_age);
 
-            double Subtotal = 0;
-
-            for (int age = Start_age; age < End_age; age++) {
-                Subtotal += Age_band_ratio_array[age];
-            }
-        }
-
-        /*for (int i = 0; i < Age_band_name.length - 1; i++) {
-            String Interval = Age_band_name[i];
-            int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("-")));
-            int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("-")+1,Interval.indexOf("yrs")));
-            System.out.println("Start_age = " + Start_age);
-            System.out.println("End_age = " + End_age);
-
-            double Subtotal = 0;
-
-            for (int age = Start_age; age < End_age; age++) {
-                Subtotal += Age_band_ratio_array[age];
-            }
-        }*/
     }
 
 
