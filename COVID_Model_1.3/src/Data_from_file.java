@@ -28,6 +28,9 @@ public class Data_from_file {
     private double[] Percentage_vaccinated_one_dose;
     private double[] Percentage_vaccinated_two_dose;
 
+    private double[] Adjusted_percentage_vaccinated_one_dose;
+    private double[] Adjusted_percentage_vaccinated_two_dose;
+
     public int[] Adjusted_cases_by_PHU;
     public int[] Adjusted_deaths_by_PHU;
     public int[] Adjusted_resolved_by_PHU;
@@ -51,6 +54,8 @@ public class Data_from_file {
         Adjusted_cases_by_PHU = new int[this.PHU_count];
         Adjusted_deaths_by_PHU = new int[this.PHU_count];
         Adjusted_resolved_by_PHU = new int[this.PHU_count];
+        Adjusted_percentage_vaccinated_one_dose = new double[Parameters.AgeBand.length];
+        Adjusted_percentage_vaccinated_two_dose = new double[Parameters.AgeBand.length];
     }
 
     public Data_from_file(int PHU_count, int Age_band_count){
@@ -79,6 +84,14 @@ public class Data_from_file {
         Unadjusted_resolved_by_PHU[PHU_index] = unadjusted_resolved_by_PHU;
     }
 
+    public void setAdjusted_percentage_vaccinated_one_dose(double[] adjusted_percentage_vaccinated_one_dose) {
+        Adjusted_percentage_vaccinated_one_dose = adjusted_percentage_vaccinated_one_dose;
+    }
+
+    public void setAdjusted_percentage_vaccinated_two_dose(double[] adjusted_percentage_vaccinated_two_dose) {
+        Adjusted_percentage_vaccinated_two_dose = adjusted_percentage_vaccinated_two_dose;
+    }
+
     /**
      * @param adjusted_cases_by_PHU
      * @param PHU_index
@@ -97,10 +110,6 @@ public class Data_from_file {
     }
 
     public void setPercentage_vaccinated_one_dose_by_age(double[] percentage_vaccinated_one_dose) {
-        Percentage_vaccinated_one_dose = new double[percentage_vaccinated_one_dose.length];
-        for (int i = 0; i < percentage_vaccinated_one_dose.length; i++) {
-            Percentage_vaccinated_one_dose[i] = percentage_vaccinated_one_dose[i];
-        }
         Percentage_vaccinated_one_dose = percentage_vaccinated_one_dose;
     }
 
@@ -144,6 +153,14 @@ public class Data_from_file {
 
     public double[] getPercentage_vaccinated_two_dose() {
         return Percentage_vaccinated_two_dose;
+    }
+
+    public double[] getAdjusted_percentage_vaccinated_one_dose() {
+        return Adjusted_percentage_vaccinated_one_dose;
+    }
+
+    public double[] getAdjusted_percentage_vaccinated_two_dose() {
+        return Adjusted_percentage_vaccinated_two_dose;
     }
 
     /**

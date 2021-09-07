@@ -173,8 +173,8 @@ public class Ontario_past_data_IO {
             One_dose_array[Age_band_name_output.length-1] = first_dose_vaccinated_subtotal;
             Two_dose_array[Age_band_name_output.length-1] = second_dose_vaccinated_subtotal;
 
-            Ontario_data.get(day).setPercentage_vaccinated_one_dose_by_age(One_dose_array);
-            Ontario_data.get(day).setPercentage_vaccinated_two_dose_by_age(Two_dose_array);
+            Ontario_data.get(day).setAdjusted_percentage_vaccinated_one_dose(One_dose_array);
+            Ontario_data.get(day).setAdjusted_percentage_vaccinated_two_dose(Two_dose_array);
         }
     }
 
@@ -287,8 +287,9 @@ public class Ontario_past_data_IO {
 
                 Data today_county_data = new Data();
                 for (int Age_band = 0; Age_band < 16; Age_band++) {
-                    double Vaccinated_one_dose_age_band = today_data.getPercentage_vaccinated_one_dose()[Age_band];
-                    double Vaccinated_two_dose_age_band = today_data.getPercentage_vaccinated_two_dose()[Age_band];
+                    double Vaccinated_one_dose_age_band = today_data.getAdjusted_percentage_vaccinated_one_dose()[Age_band];
+                    double Vaccinated_two_dose_age_band = today_data.getAdjusted_percentage_vaccinated_two_dose()[Age_band];
+                    System.out.println(Vaccinated_one_dose_age_band);
                     double age_band_adjusted_incidence = incidence * Adjustment_cases[Age_band];
                     double age_band_adjusted_deaths = deaths * Adjustment_deaths[Age_band];
                     double age_band_adjusted_resolved = resolved * Adjustment_resolved[Age_band];
