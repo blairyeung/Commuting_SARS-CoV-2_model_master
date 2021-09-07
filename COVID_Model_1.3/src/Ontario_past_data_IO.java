@@ -118,9 +118,8 @@ public class Ontario_past_data_IO {
             Age_vaccination_ratio_first = new double[Age_band_ratio.size()];
             Age_vaccination_ratio_second = new double[Age_band_ratio.size()];
 
-            Data_from_file this_day = Ontario_data.get(day);
-            double[] first_dose = this_day.getPercentage_vaccinated_one_dose();
-            double[] second_dose = this_day.getPercentage_vaccinated_two_dose();
+            double[] first_dose = Ontario_data.get(day).getPercentage_vaccinated_one_dose();
+            double[] second_dose = Ontario_data.get(day).getPercentage_vaccinated_two_dose();
 
             for (int i = 0; i < Age_band_name.length - 1; i++) {
                 String Interval = Age_band_name[i];
@@ -138,6 +137,8 @@ public class Ontario_past_data_IO {
             double One_dose_array[] = new double[Age_band_name_output.length];
             double Two_dose_array[] = new double[Age_band_name_output.length];
 
+            first_dose = new double[Age_band_name_output.length];
+            second_dose = new double[Age_band_name_output.length];
 
             for (int i = 0; i < Age_band_name_output.length - 1; i++) {
                 String Interval = Age_band_name_output[i];
@@ -172,8 +173,8 @@ public class Ontario_past_data_IO {
             One_dose_array[Age_band_name_output.length-1] = first_dose_vaccinated_subtotal;
             Two_dose_array[Age_band_name_output.length-1] = second_dose_vaccinated_subtotal;
 
-            this_day.setPercentage_vaccinated_one_dose_by_age(One_dose_array);
-            this_day.setPercentage_vaccinated_two_dose_by_age(Two_dose_array);
+            Ontario_data.get(day).setPercentage_vaccinated_one_dose_by_age(One_dose_array);
+            Ontario_data.get(day).setPercentage_vaccinated_two_dose_by_age(Two_dose_array);
         }
     }
 
@@ -236,12 +237,8 @@ public class Ontario_past_data_IO {
                 }
 
                 String[] PHU_List = PHU.PHUs;
-                System.out.println(PHU_code);
 
                 int PHU_index = Function.index_of_object_in_array(PHU_code,PHU_List);
-
-                System.out.println(PHU_index);
-                System.out.println(str);
 
                 int index = Date_index.indexOf(date);
                 Ontario_data.get(index).setUnadjusted_cases_by_PHU(Integer.parseInt(Stratified[3]),PHU_index);
@@ -256,7 +253,7 @@ public class Ontario_past_data_IO {
 
         Sort(Ontario_data);
 
-        for(Data_from_file d: Ontario_data){
+        /*for(Data_from_file d: Ontario_data){
             System.out.println("Date: " + d.getDate());
             for (int i = 0; i < Age_band_name.length; i++) {
                 System.out.print("Age_band: " + Age_band_name[i]);
@@ -270,7 +267,7 @@ public class Ontario_past_data_IO {
                 System.out.print("    Death: " + d.getAdjusted_deaths_by_PHU(i));
                 System.out.println("    Resolved: " + d.getAdjusted_resolved_by_PHU(i));
             }
-        }
+        }*/
 
 
     }
@@ -278,6 +275,7 @@ public class Ontario_past_data_IO {
     public static void to_County(){
         Ontario_past_data_array = new CountyDataArray[CountyDataIO.Counties.length];
         for (int County_Code = 0; County_Code < CountyDataIO.Counties.length; County_Code++) {
+
             for (int date = 0; date < Date_index.size(); date++) {
                 Data_from_file today_data = Ontario_data.get(date);
                 CountyData data = CountyDataIO.Counties[County_Code];
@@ -289,21 +287,18 @@ public class Ontario_past_data_IO {
 
                 Data today_county_data = new Data();
                 for (int Age_band = 0; Age_band < 16; Age_band++) {
-                    int Relocated_age_band;
-                    if((Relocated_age_band = Relocate_age_band(Age_band))!=-1){
-                        //System.out.println(Relocated_age_band);
-                        double Vaccinated_one_dose_age_band = today_data.getPercentage_vaccinated_one_dose(Relocated_age_band);
-                        double Vaccinated_two_dose_age_band = today_data.getPercentage_vaccinated_two_dose(Relocated_age_band);
-                        double age_band_adjusted_incidence = incidence * Adjustment_cases[Age_band];
-                        double age_band_adjusted_deaths = deaths * Adjustment_deaths[Age_band];
-                        double age_band_adjusted_resolved = resolved * Adjustment_resolved[Age_band];
+                    double Vaccinated_one_dose_age_band = today_data.getPercentage_vaccinated_one_dose()[Age_band];
+                    double Vaccinated_two_dose_age_band = today_data.getPercentage_vaccinated_two_dose()[Age_band];
+                    double age_band_adjusted_incidence = incidence * Adjustment_cases[Age_band];
+                    double age_band_adjusted_deaths = deaths * Adjustment_deaths[Age_band];
+                    double age_band_adjusted_resolved = resolved * Adjustment_resolved[Age_band];
 
-                        Age_vaccination_ratio_first = new double[Age_band_ratio.size()];
-                        Age_vaccination_ratio_second = new double[Age_band_ratio.size()];
+                    Age_vaccination_ratio_first = new double[Age_band_ratio.size()];
+                    Age_vaccination_ratio_second = new double[Age_band_ratio.size()];
 
-                        /**
-                         * 需要写到today data里 在该method运行前执行
-                         */
+                    /**
+                     * 需要写到today data里 在该method运行前执行
+                     */
 
                         /*for (int i = 0; i < Age_band.length - 1; i++) {
                             String Interval = Age_band[i];
@@ -314,16 +309,15 @@ public class Ontario_past_data_IO {
                             //Age_vaccination_ratio[Start_age];
                         }*/
 
-                        for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
-                            today_county_data.setValueDataPackByAge(variant,Age_band,17,((int) Math.round(age_band_adjusted_incidence)));//Set incidence
-                            today_county_data.setValueDataPackByAge(variant,Age_band,18,((int) Math.round(age_band_adjusted_incidence)));//Set exposed
-                            today_county_data.setValueDataPackByAge(variant,Age_band,19,((int) Math.round(age_band_adjusted_incidence)));//Set active cases
-                            today_county_data.setValueDataPackByAge(variant,Age_band,21,((int) Math.round(age_band_adjusted_resolved)));//Set resolved
-                            today_county_data.setValueDataPackByAge(variant,Age_band,22,((int) Math.round(age_band_adjusted_deaths)));//Set deaths
-                            today_county_data.setValueDataPackByAge(variant,Age_band,23,((int) Math.round(age_band_adjusted_incidence)));//Set vaccinated one dose
-                            today_county_data.setValueDataPackByAge(variant,Age_band,24,((int) Math.round(age_band_adjusted_incidence)));//Set vaccinated two dose
-                        }
-                    }//Relocate age band to 8 super_age_bands
+                    for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
+                        today_county_data.setValueDataPackByAge(variant,Age_band,17,((int) Math.round(age_band_adjusted_incidence)));//Set incidence
+                        today_county_data.setValueDataPackByAge(variant,Age_band,18,((int) Math.round(age_band_adjusted_incidence)));//Set exposed
+                        today_county_data.setValueDataPackByAge(variant,Age_band,19,((int) Math.round(age_band_adjusted_incidence)));//Set active cases
+                        today_county_data.setValueDataPackByAge(variant,Age_band,21,((int) Math.round(age_band_adjusted_resolved)));//Set resolved
+                        today_county_data.setValueDataPackByAge(variant,Age_band,22,((int) Math.round(age_band_adjusted_deaths)));//Set deaths
+                        today_county_data.setValueDataPackByAge(variant,Age_band,23,((int) Math.round(Vaccinated_one_dose_age_band)));//Set vaccinated one dose
+                        today_county_data.setValueDataPackByAge(variant,Age_band,24,((int) Math.round(Vaccinated_two_dose_age_band)));//Set vaccinated two dose
+                    }
                 }
             }
         }

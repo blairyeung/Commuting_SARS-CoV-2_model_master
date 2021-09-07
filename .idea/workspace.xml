@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="AGeIO">
-      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/Model IO/Ontario_population_by_age.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model IO/Ontario_population_by_age.csv" afterDir="false" />
+    <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Auxili.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Auxili.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data_from_file.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data_from_file.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxili.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Auxili.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Data_from_file.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Data_from_file.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Kernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Kernel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630972221611</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Layer">
+      <created>1630979959738</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1630979959738</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,7 +262,8 @@
     <MESSAGE value="Version 1.5" />
     <MESSAGE value="MLE" />
     <MESSAGE value="AGeIO" />
-    <option name="LAST_COMMIT_MESSAGE" value="AGeIO" />
+    <MESSAGE value="Layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

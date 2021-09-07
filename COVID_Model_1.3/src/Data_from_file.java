@@ -97,6 +97,10 @@ public class Data_from_file {
     }
 
     public void setPercentage_vaccinated_one_dose_by_age(double[] percentage_vaccinated_one_dose) {
+        Percentage_vaccinated_one_dose = new double[percentage_vaccinated_one_dose.length];
+        for (int i = 0; i < percentage_vaccinated_one_dose.length; i++) {
+            Percentage_vaccinated_one_dose[i] = percentage_vaccinated_one_dose[i];
+        }
         Percentage_vaccinated_one_dose = percentage_vaccinated_one_dose;
     }
 
