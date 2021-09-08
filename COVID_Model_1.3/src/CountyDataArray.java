@@ -25,6 +25,10 @@ public class CountyDataArray {
         TimeSeries[Main.Day] = CountyData;
     }
 
+    public int getLength(){
+        return TimeSeries.length;
+    }
+
     public Data[] getTimeSeries(){
         return TimeSeries;
     }

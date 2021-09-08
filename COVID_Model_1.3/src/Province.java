@@ -45,7 +45,7 @@ public class Province {
 
         for (int County_Code = 0; County_Code < Number_of_Counties; County_Code++) {
             int Population = CountyDataIO.Counties[County_Code].getPopulation();
-            Counties[County_Code] = new County(Population, County_Code);
+            Counties[County_Code] = new County(Population, County_Code,Ontario_past_data_IO.Ontario_past_data_array[County_Code]);
         }
     }
 
@@ -76,7 +76,7 @@ public class Province {
             System.out.println("County: " + CountyDataIO.Counties[County_Code].getName());
             System.out.println("Population: " + CountyDataIO.Counties[County_Code].getPopulation());
             int Population = CountyDataIO.Counties[County_Code].getPopulation();
-            Counties[County_Code] = new County(Population, County_Code);
+            Counties[County_Code] = new County(Population, County_Code,Ontario_past_data_IO.Ontario_past_data_array[County_Code]);
         }
 
         allocation = new Vaccine_allocation(0);

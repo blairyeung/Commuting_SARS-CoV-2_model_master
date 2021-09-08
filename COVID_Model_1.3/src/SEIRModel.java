@@ -72,7 +72,7 @@ public class SEIRModel{
         double Total_RemovedCritical = 0;
         //double Total_RemovedResolved = 0;
 
-        double[][] Immunity_by_category = findImmune(SeriesData);
+        double[][] Immunity_by_category = findImmune(PastData, SeriesData);
 
         ClinicalCases = 0;
         SubClinicalCases = 0;
@@ -330,7 +330,7 @@ public class SEIRModel{
         int ImportedCases = (int) CountyData.getDataPack()[15];
         int ExportedCases = (int) CountyData.getDataPack()[16];
 
-        double[][] Immunity_by_category = findImmune(SeriesData);
+        double[][] Immunity_by_category = findImmune(PastData, SeriesData);
 
         int Type = 0;
         if(Population>=10000){
@@ -555,27 +555,10 @@ public class SEIRModel{
         return sum;
     }
 
-    public static double[][] findImmune(CountyDataArray DataPack){
+    public static double[][] findImmune(CountyDataArray Pastdata, CountyDataArray DataPack){
         /**
          * Function immune
          */
-
-        //double Immunity_level_against_infection_mild = 0;
-        //double Immunity_level_against_hospitalization_severe = 0;
-
-        //int Iterate = (int) Math.min(Main.Day, 200);
-
-        /*for (int date = 0; date < Main.Day; date++) {
-            double Vaccinated_on_day =  DataPack.getTimeSeries()[date].getDataPack()[23];
-            double Infected_on_day =  DataPack.getTimeSeries()[date].getDataPack()[17];
-            int Vaccination_index = Math.min(1500,Main.Day-date);
-            int Infection_index = Math.min(1500,Main.Day-date);//Assuming it wanes twice slower
-            Immunity_level_against_infection_mild += Vaccinated_on_day * IO.Immunity_wane_mild.get(Main.Day-date);
-            Immunity_level_against_infection_mild += Infected_on_day * IO.Immunity_wane_mild.get((Main.Day-date)/2);
-
-            Immunity_level_against_hospitalization_severe += Vaccinated_on_day * IO.Immunity_wane_severe.get(Main.Day-date);
-            Immunity_level_against_hospitalization_severe += Infected_on_day * IO.Immunity_wane_severe.get((Main.Day-date)/2);
-        }*/
 
         double[][] Immunity_level_by_age_and_category = new double[16][2];
         /**
@@ -585,16 +568,29 @@ public class SEIRModel{
         for (int Ageband = 0; Ageband < 16; Ageband++) {
             double Immunity_level_against_infection_mild = 0;
             double Immunity_level_against_hospitalization_severe = 0;
+
+            for (int date = 0; date < Pastdata.getLength(); date++) {
+                double Vaccinated_on_day =  DataPack.getTimeSeries()[date].getDataPackByAge()[0][23][Ageband];
+                double Infected_on_day =  DataPack.getTimeSeries()[date].getDataPackByAge()[0][17][Ageband];
+
+                int date_index = Math.min(1500,Main.Day + Pastdata.getLength() - date);
+
+                Immunity_level_against_infection_mild += Vaccinated_on_day * IO.Immunity_wane_mild.get(date_index);
+                Immunity_level_against_infection_mild += Infected_on_day * IO.Immunity_wane_mild.get((date_index)/2);
+                Immunity_level_against_hospitalization_severe += Vaccinated_on_day * IO.Immunity_wane_severe.get(date_index);
+                Immunity_level_against_hospitalization_severe += Infected_on_day * IO.Immunity_wane_severe.get((date_index)/2);
+            }
+
             for (int date = 0; date < Main.Day; date++) {
                 double Vaccinated_on_day =  DataPack.getTimeSeries()[date].getDataPackByAge()[0][23][Ageband];
                 double Infected_on_day =  DataPack.getTimeSeries()[date].getDataPackByAge()[0][17][Ageband];
-                int Vaccination_index = Math.min(1500,Main.Day-date);
-                int Infection_index = Math.min(1500,Main.Day-date);//Assuming it wanes twice slower
-                Immunity_level_against_infection_mild += Vaccinated_on_day * IO.Immunity_wane_mild.get(Main.Day-date);
-                Immunity_level_against_infection_mild += Infected_on_day * IO.Immunity_wane_mild.get((Main.Day-date)/2);
-                Immunity_level_against_hospitalization_severe += Vaccinated_on_day * IO.Immunity_wane_severe.get(Main.Day-date);
-                Immunity_level_against_hospitalization_severe += Infected_on_day * IO.Immunity_wane_severe.get((Main.Day-date)/2);
+                int date_index = Math.min(1500,Main.Day-date);
+                Immunity_level_against_infection_mild += Vaccinated_on_day * IO.Immunity_wane_mild.get(date_index);
+                Immunity_level_against_infection_mild += Infected_on_day * IO.Immunity_wane_mild.get((date_index)/2);
+                Immunity_level_against_hospitalization_severe += Vaccinated_on_day * IO.Immunity_wane_severe.get(date_index);
+                Immunity_level_against_hospitalization_severe += Infected_on_day * IO.Immunity_wane_severe.get((date_index)/2);
             }
+
             Immunity_level_by_age_and_category[Ageband] = new double[]{Immunity_level_against_infection_mild, Immunity_level_against_hospitalization_severe};
         }
 
