@@ -125,8 +125,6 @@ public class Ontario_past_data_IO {
                 String Interval = Age_band_name[i];
                 int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("-")));
                 int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("-")+1,Interval.indexOf("yrs")));
-                System.out.println("Start_age = " + Start_age);
-                System.out.println("End_age = " + End_age);
 
                 for (int age = Start_age; age < End_age; age++) {
                     Age_vaccination_ratio_first[age] =  first_dose[i];
@@ -142,11 +140,8 @@ public class Ontario_past_data_IO {
 
             for (int i = 0; i < Age_band_name_output.length - 1; i++) {
                 String Interval = Age_band_name_output[i];
-                System.out.println(Interval);
                 int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("to")-1));
                 int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("to")+3));
-                System.out.println("Start_age = " + Start_age);
-                System.out.println("End_age = " + End_age);
                 double first_dose_vaccinated_subtotal = 0;
                 double second_dose_vaccinated_subtotal = 0;
                 double population_subtotal = Parameters.Ontario_population_by_age[i];/**Population import from statistics canada*/
@@ -253,23 +248,6 @@ public class Ontario_past_data_IO {
 
         Sort(Ontario_data);
 
-        /*for(Data_from_file d: Ontario_data){
-            System.out.println("Date: " + d.getDate());
-            for (int i = 0; i < Age_band_name.length; i++) {
-                System.out.print("Age_band: " + Age_band_name[i]);
-                System.out.print("    One Dose: " + d.getPercentage_vaccinated_one_dose(i));
-                System.out.println("    Two doses: " + d.getPercentage_vaccinated_two_dose(i));
-            }
-
-            for (int i = 0; i < PHU.PHUs_list.size(); i++) {
-                System.out.print("PHU: " + PHU.PHUs_list.get(i));
-                System.out.print("    Case: " + d.getAdjusted_cases_by_PHU(i));
-                System.out.print("    Death: " + d.getAdjusted_deaths_by_PHU(i));
-                System.out.println("    Resolved: " + d.getAdjusted_resolved_by_PHU(i));
-            }
-        }*/
-
-
     }
 
     public static void to_County(){
@@ -291,7 +269,6 @@ public class Ontario_past_data_IO {
                 for (int Age_band = 0; Age_band < 16; Age_band++) {
                     double Vaccinated_one_dose_age_band = today_data.getAdjusted_percentage_vaccinated_one_dose()[Age_band];
                     double Vaccinated_two_dose_age_band = today_data.getAdjusted_percentage_vaccinated_two_dose()[Age_band];
-                    System.out.println(Vaccinated_one_dose_age_band);
                     double age_band_adjusted_incidence = incidence * Adjustment_cases[Age_band];
                     double age_band_adjusted_deaths = deaths * Adjustment_deaths[Age_band];
                     double age_band_adjusted_resolved = resolved * Adjustment_resolved[Age_band];
@@ -335,9 +312,6 @@ public class Ontario_past_data_IO {
 
         Age_band_ratio = Function.Normalization(Population_by_age_band);
 
-        for (int line = 0; line < Age_band_ratio.size(); line++) {
-            System.out.println(Age_band_ratio.get(line));
-        }
         Age_band_ratio_array = ArrayListToArray.toArray(Age_band_ratio, Age_band_ratio_array);
     }
 
