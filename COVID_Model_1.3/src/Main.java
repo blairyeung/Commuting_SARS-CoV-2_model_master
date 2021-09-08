@@ -23,7 +23,7 @@ public class Main {
          * Load preset
          */
 
-        Presets Preset = new Presets(0);
+        Presets Preset   = new Presets(0);
         Initial_Parameters Initial = Preset.getPreset(0);
 
         Trail Traildata = new Trail(0,1);

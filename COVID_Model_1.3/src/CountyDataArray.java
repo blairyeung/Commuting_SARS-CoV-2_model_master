@@ -10,6 +10,9 @@ public class CountyDataArray {
     public CountyDataArray(String Name){
         this.CountyName = Name;
         TimeSeries = new Data[Parameters.Observation_Range];
+        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+            TimeSeries[Date] = new Data();
+        }
     }
 
     public CountyDataArray() {
