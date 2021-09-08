@@ -34,7 +34,7 @@ public class Parameters {
 
     static public String ColumnName[] = {"Day","Population","Infected","Exposed","Active_cases","Critical_cases","Resolved","Deaths","Vaccinated",
             "Clinical_Cases","Subclinical_cases","CFR","Immune","Tier","Constant", "Imported_cases","Exported_cases",
-            "Daily_Infected","Daily_Exposed","Daily_cases","Daily_critical","Daily_resolved","Daily_deaths","Daily_vaccinated"};
+            "Daily_Infected","Daily_Exposed","Daily_cases","Daily_critical","Daily_resolved","Daily_deaths","Daily_vaccinated","Daily_vaccinated_second_dose"};
 
     static public double[] CFR = {0.00004,0.00003,0.00002,0.00016,0.0002,0.00024,0.0003,0.0004,0.0006,0.0009,0.0014,0.0042,0.008,0.028,0.04,0.18};
     static public double[] CriticalRate = {0.00004,0.00003,0.00002,0.00016,0.0002,0.00024,0.0003,0.0004,0.0006,0.0009,0.0014,0.0042,0.008,0.028,0.04,0.18};/**Research crtical rate, substitude*/

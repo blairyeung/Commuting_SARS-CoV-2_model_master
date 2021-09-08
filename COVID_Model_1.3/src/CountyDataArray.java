@@ -20,8 +20,8 @@ public class CountyDataArray {
     }
 
     public void bindTimeSeries(Data CountyData){
-        System.out.println("Going to bind");
-        ConsolePrint.PrintCountyInformation(CountyData);
+        //System.out.println("Going to bind");
+        //ConsolePrint.PrintCountyInformation(CountyData);
         TimeSeries[Main.Day] = CountyData;
     }
 

@@ -273,9 +273,11 @@ public class Ontario_past_data_IO {
     }
 
     public static void to_County(){
-        Ontario_past_data_array = new CountyDataArray[CountyDataIO.Counties.length];
-        for (int County_Code = 0; County_Code < CountyDataIO.Counties.length; County_Code++) {
 
+        Ontario_past_data_array = new CountyDataArray[CountyDataIO.Counties.length];
+
+        for (int County_Code = 0; County_Code < CountyDataIO.Counties.length; County_Code++) {
+            Ontario_past_data_array[County_Code] = new CountyDataArray();
             for (int date = 0; date < Date_index.size(); date++) {
                 Data_from_file today_data = Ontario_data.get(date);
                 CountyData data = CountyDataIO.Counties[County_Code];
@@ -297,19 +299,6 @@ public class Ontario_past_data_IO {
                     Age_vaccination_ratio_first = new double[Age_band_ratio.size()];
                     Age_vaccination_ratio_second = new double[Age_band_ratio.size()];
 
-                    /**
-                     * 需要写到today data里 在该method运行前执行
-                     */
-
-                        /*for (int i = 0; i < Age_band.length - 1; i++) {
-                            String Interval = Age_band[i];
-                            int Start_age = Integer.parseInt(Interval.substring(0,Interval.indexOf("to")-1));
-                            int End_age = Integer.parseInt(Interval.substring(Interval.indexOf("to")+3));
-                            System.out.println("Start_age = " + Start_age);
-                            System.out.println("End_age = " + End_age);
-                            //Age_vaccination_ratio[Start_age];
-                        }*/
-
                     for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
                         today_county_data.setValueDataPackByAge(variant,Age_band,17,((int) Math.round(age_band_adjusted_incidence)));//Set incidence
                         today_county_data.setValueDataPackByAge(variant,Age_band,18,((int) Math.round(age_band_adjusted_incidence)));//Set exposed
@@ -320,6 +309,8 @@ public class Ontario_past_data_IO {
                         today_county_data.setValueDataPackByAge(variant,Age_band,24,((int) Math.round(Vaccinated_two_dose_age_band)));//Set vaccinated two dose
                     }
                 }
+                today_county_data.reCalculate();
+                Ontario_past_data_array[County_Code].bindTimeSeries(today_county_data);
             }
         }
     }

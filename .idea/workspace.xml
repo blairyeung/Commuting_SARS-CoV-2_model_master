@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="Bug spotted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data_from_file.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data_from_file.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Data_from_file.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Data_from_file.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/CountyDataArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Data.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Ontario_past_data_IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630982331846</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Bug spotted">
+      <created>1631050338153</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1631050338153</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

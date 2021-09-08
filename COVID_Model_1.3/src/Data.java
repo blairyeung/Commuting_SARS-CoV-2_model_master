@@ -19,9 +19,9 @@ public class Data {
          */
 
         DataPack = new double[Parameters.DataPackSize];
-        DataPackByVariant = new double[2][Parameters.DataPackSize];
-        PatientArray = new ArrayList[2][16];
-        DataPackByAge = new double[2][Parameters.DataPackSize][16];
+        DataPackByVariant = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize];
+        PatientArray = new ArrayList[Parameters.Total_number_of_variants][16];
+        DataPackByAge = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize][16];
 
         DataPack[0] = Main.Day;/**Day*/
         DataPack[1] = 100000;/**Population*/
@@ -56,7 +56,7 @@ public class Data {
         DataPack[24] = 0;/**Daily Vaccinated Two Dose*/
 
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < Parameters.Total_number_of_variants; i++) {
             for (int i1 = 0; i1 < DataPack.length; i1++) {
                 DataPackByVariant[i][i1] = DataPack[i1];
             }
@@ -75,9 +75,9 @@ public class Data {
          */
 
         DataPack = new double[Parameters.DataPackSize];
-        DataPackByVariant = new double[2][Parameters.DataPackSize];
+        DataPackByVariant = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize];
         PatientArray = new ArrayList[2][16];
-        DataPackByAge = new double[2][Parameters.DataPackSize][16];
+        DataPackByAge = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize][16];
 
 
         DataPack[0] = (int) Day;/**Day*/
@@ -114,7 +114,7 @@ public class Data {
 
 
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < Parameters.Total_number_of_variants; i++) {
             for (int i1 = 0; i1 < DataPack.length; i1++) {
                 DataPackByVariant[i][i1] = DataPack[i1];
             }
@@ -132,9 +132,9 @@ public class Data {
          */
 
         DataPack = new double[Parameters.DataPackSize];
-        DataPackByVariant = new double[2][Parameters.DataPackSize];
-        PatientArray = new ArrayList[2][16];
-        DataPackByAge = new double[2][Parameters.DataPackSize][16];
+        DataPackByVariant = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize];
+        PatientArray = new ArrayList[Parameters.Total_number_of_variants][16];
+        DataPackByAge = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize][16];
 
         /**
          * Cumulative
@@ -184,7 +184,7 @@ public class Data {
         DataPackByAge[0][12][7] = InitialInfected;
         DataPackByAge[0][17][7] = InitialInfected;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < Parameters.Total_number_of_variants; i++) {
             for (int i1 = 0; i1 < DataPack.length; i1++) {
                 DataPackByVariant[i][i1] = DataPack[i1];
             }
@@ -202,9 +202,9 @@ public class Data {
          */
 
         DataPack = new double[Parameters.DataPackSize];
-        DataPackByVariant = new double[2][Parameters.DataPackSize];
-        PatientArray = new ArrayList[2][16];
-        DataPackByAge = new double[2][Parameters.DataPackSize][16];
+        DataPackByVariant = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize];
+        PatientArray = new ArrayList[Parameters.Total_number_of_variants][16];
+        DataPackByAge = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize][16];
 
         /**
          * Cumulative
@@ -251,7 +251,7 @@ public class Data {
         DataPackByAge[0][12][7] = InitialInfected;
         DataPackByAge[0][17][7] = InitialInfected;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < Parameters.Total_number_of_variants; i++) {
             for (int i1 = 0; i1 < DataPack.length; i1++) {
                 DataPackByVariant[i][i1] = DataPack[i1];
             }
@@ -274,9 +274,9 @@ public class Data {
          */
 
         DataPack = new double[Parameters.DataPackSize];
-        DataPackByVariant = new double[2][Parameters.DataPackSize];
-        PatientArray = new ArrayList[2][16];
-        DataPackByAge = new double[2][Parameters.DataPackSize][16];
+        DataPackByVariant = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize];
+        PatientArray = new ArrayList[Parameters.Total_number_of_variants][16];
+        DataPackByAge = new double[Parameters.Total_number_of_variants][Parameters.DataPackSize][16];
 
         /**
          * Cumulative
@@ -323,7 +323,7 @@ public class Data {
         DataPackByAge[0][12][7] = InitialInfected;
         DataPackByAge[0][17][7] = InitialInfected;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < Parameters.Total_number_of_variants; i++) {
             for (int i1 = 0; i1 < DataPack.length; i1++) {
                 DataPackByVariant[i][i1] = DataPack[i1];
             }
@@ -376,9 +376,21 @@ public class Data {
     }
 
     public void reCalculate(){
+
         /**
          * recalculate total value from age_specific data
          */
+
+            for (int index = 0; index < DataPack.length; index++) {
+                double subtotal = 0;
+                for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
+                    for (int Age_band = 0; Age_band < Parameters.AgeBand.length; Age_band++) {
+                        subtotal += DataPackByAge[variant][index][Age_band];
+                    }
+                }
+                DataPack[index] = subtotal;
+            }
+
     }
 
 }
