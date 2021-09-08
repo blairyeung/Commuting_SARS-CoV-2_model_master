@@ -5,6 +5,7 @@ public class County{
     private int Population;
     private int Tier;
 
+    private CountyDataArray Past_series;
     private CountyDataArray Series;
     private Data County_Data;
 
@@ -27,6 +28,24 @@ public class County{
         Series = new CountyDataArray(CountyDataIO.Counties[Code].getName());
         Series.setDataWithinSeries(Main.Day, County_Data);
     }
+
+    /**
+     * @param Population
+     * @param Code
+     * @param Past_series
+     */
+
+    public County(int Population, int Code, CountyDataArray Past_series){
+        System.out.println(Population);
+        System.out.println(Code);
+        this.Population = Population;
+        this.County_Index = Code;
+        this.Past_series = Past_series;
+        County_Data = new Data(Population);
+        Series = new CountyDataArray(CountyDataIO.Counties[Code].getName());
+        Series.setDataWithinSeries(Main.Day, County_Data);
+    }
+
 
     public County_Return_Datapack Run_Model_with_flux(int Export, int Import, int Local_worker, int Vaccine_allocated, double[][] Age_specific_vaccine_distribution){
 
@@ -54,7 +73,7 @@ public class County{
 
         this.Tier = FindResponseLevel.getResponseLevel(Incidence);
 
-        Data NewData = SEIRModel.RunModel(Series,County_Data, Import, Export, Tier, County_Index, Local_worker, Vaccine_allocated, Age_specific_vaccine_distribution);
+        Data NewData = SEIRModel.RunModel(Past_series,Series,County_Data, Import, Export, Tier, County_Index, Local_worker, Vaccine_allocated, Age_specific_vaccine_distribution);
 
         Series.setDataWithinSeries(Main.Day+1, NewData);
 
@@ -87,7 +106,7 @@ public class County{
 
         this.Tier = FindResponseLevel.getResponseLevel(Incidence);
 
-        Data NewData = SEIRModel.RunModel(Series,County_Data, Import, Export, Tier, County_Index, Local_worker, VaccineAllocated, Age_specific_vaccine_distribution);
+        Data NewData = SEIRModel.RunModel(Past_series, Series, County_Data, Import, Export, Tier, County_Index, Local_worker, VaccineAllocated, Age_specific_vaccine_distribution);
 
         Series.setDataWithinSeries(Main.Day+1, NewData);
 
@@ -114,7 +133,7 @@ public class County{
             this.Tier = FindResponseLevel.getResponseLevel(Incidence);
 
 
-            Data NewData = SEIRModel.NightModel(Series,County_Data, Imported, Exported, Tier, County_Index, VaccineAllocated, Age_specific_vaccine_distribution);
+            Data NewData = SEIRModel.NightModel(Past_series, Series, County_Data, Imported, Exported, Tier, County_Index, VaccineAllocated, Age_specific_vaccine_distribution);
 
             Series.setDataWithinSeries(Main.Day+1, NewData);
 

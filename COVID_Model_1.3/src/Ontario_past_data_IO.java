@@ -34,7 +34,6 @@ public class Ontario_past_data_IO {
     public static ArrayList[] Population_ratio_by_PHU = null;
 
     public static CountyDataArray[] Ontario_past_data_array  = null;
-    //public static ArrayList<CountyDataArray> Ontario_past_data_array  = new ArrayList<>();
 
     public static double[] Age_band_ratio_array = null;
     public static ArrayList<Double> Age_band_ratio = new ArrayList<>();

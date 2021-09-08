@@ -8,7 +8,7 @@ public class SEIRModel{
 
     }
 
-    public static Data RunModel(CountyDataArray SeriesData,Data CountyData, int Imported, int Exported, int ResponseTier, int County, int Local_workers, int Planned_vaccination, double[][] Age_specific_vaccine_distribution){
+    public static Data RunModel(CountyDataArray PastData,CountyDataArray SeriesData,Data CountyData, int Imported, int Exported, int ResponseTier, int County, int Local_workers, int Planned_vaccination, double[][] Age_specific_vaccine_distribution){
 
         int Date = Main.Day;
 
@@ -310,7 +310,7 @@ public class SEIRModel{
         return ReturnData;
     }
 
-    public static Data NightModel(CountyDataArray SeriesData,Data CountyData, int Imported, int Exported, int ResponseTier, int County, int Planned_vaccination, double[][] Age_specific_vaccine_distribution){
+    public static Data NightModel(CountyDataArray PastData,CountyDataArray SeriesData,Data CountyData, int Imported, int Exported, int ResponseTier, int County, int Planned_vaccination, double[][] Age_specific_vaccine_distribution){
         int Date = Main.Day;
 
         int Population = (int) CountyData.getDataPack()[1];
