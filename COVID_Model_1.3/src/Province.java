@@ -130,21 +130,37 @@ public class Province {
             int Local_worker = Commute_IO.Local_worker_array[County_Code];
             multi_thread_models[County_Code] = new Model(0, Counties[County_Code],Export,Import, Local_worker, Age_specific_vaccine_dist_pack, VaccinationDistribution[County_Code]);
             multi_thread_models[County_Code].start();
-            //County_Return_Datapack returnedpack = Counties[County_Code].Run_Model_with_flux(Export,Import, Local_worker, VaccinationDistribution[County_Code], Age_specific_vaccine_dist_pack);
+        }
+
+        for (int County_Code = 0; County_Code < Number_of_Counties; County_Code++) {
             County_Return_Datapack returnedpack = null;
+            while(multi_thread_models[County_Code].pack==null){
+                try {
+                    Thread.currentThread().sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            returnedpack = multi_thread_models[County_Code].pack;
             int Exported_from_county = returnedpack.getExported_cases();
             Weekly_Incidence_Rate_By_County[County_Code] = returnedpack.getIncidence_rate();
 
             Case_flux_matrix_Total[County_Code] = Math.max(Exported_from_county, 0);
         }
+
         Migration_Assign();
         for (int County_Code = 0; County_Code < Number_of_Counties; County_Code++) {
             if(Importing_Case_flux_matrix_Total[County_Code]!=0){
                 Counties[County_Code].setImporting(Importing_Case_flux_matrix_Total[County_Code]);
             }
         }
+
+        multi_thread_models = new Model[Number_of_Counties];
+
         for (int County_code = 0; County_code < Number_of_Counties; County_code++) {
-            Counties[County_code].Run_Model_Resident( 0, Age_specific_vaccine_dist_pack);
+            //Counties[County_code].Run_Model_Resident( 0, Age_specific_vaccine_dist_pack);
+            multi_thread_models[County_code] = new Model(1, Counties[County_code], Age_specific_vaccine_dist_pack, VaccinationDistribution[County_code]);
+            multi_thread_models[County_code].start();
         }
     }
 

@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46d408e4-d5bf-4b0f-8aca-45ef199b72e3" name="Default Changelist" comment="v1.5 upadte">
-      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Multitest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Model Output/Iteration 0/Trail 1/Abitibi_70.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Model Output/Iteration 0/Trail 1/Abitibi_70_Full.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Model Output/Iteration 0/Trail 1/Addington_Highlands.csv" afterDir="false" />
@@ -9459,16 +9457,7 @@
       <change afterPath="$PROJECT_DIR$/Model Output/Iteration 0/Trail 1/Zorra_Full.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/County.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/County.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyDataArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/CountyDataArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Data.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Ontario_past_data_IO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Parameters.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Province.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/Province.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/SEIRModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/out/production/Commuting_SARS-CoV-2_model_master/SEIRModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/County.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/County.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/COVID_Model_1.3/src/Province.java" beforeDir="false" afterPath="$PROJECT_DIR$/COVID_Model_1.3/src/Province.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -9514,7 +9503,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Multitest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="CountyDataIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-15 (2)" />
       <option name="MAIN_CLASS_NAME" value="CountyDataIO" />
