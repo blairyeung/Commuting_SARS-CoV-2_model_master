@@ -1,4 +1,4 @@
-public class County{
+public class County extends Thread{
 
     private String County_Name;
     private int County_Index;
@@ -44,6 +44,9 @@ public class County{
         County_Data = new Data(Population);
         Series = new CountyDataArray(CountyDataIO.Counties[Code].getName());
         Series.setDataWithinSeries(Main.Day, County_Data);
+    }
+
+    public void Run(){
     }
 
 
@@ -113,7 +116,7 @@ public class County{
         //ConsolePrint.PrintCountyInformation(Series.getTimeSeries()[Main.Day]);
     }
 
-    public void Run_Modle_Resident(int VaccineAllocated, double[][] Age_specific_vaccine_distribution){
+    public void Run_Model_Resident(int VaccineAllocated, double[][] Age_specific_vaccine_distribution){
 
         County_Data = Series.getTimeSeries()[Main.Day+1];
 

@@ -121,14 +121,17 @@ public class Province {
          * Output
          */
 
+        Model multi_thread_models[] = new Model[Number_of_Counties];
 
         for (int County_Code = 0; County_Code < Number_of_Counties; County_Code++) {
 
             int Export = Case_Migrating[County_Code];
             int Import = Case_Migrated[County_Code];
             int Local_worker = Commute_IO.Local_worker_array[County_Code];
-
-            County_Return_Datapack returnedpack = Counties[County_Code].Run_Model_with_flux(Export,Import, Local_worker, VaccinationDistribution[County_Code], Age_specific_vaccine_dist_pack);
+            multi_thread_models[County_Code] = new Model(0, Counties[County_Code],Export,Import, Local_worker, Age_specific_vaccine_dist_pack, VaccinationDistribution[County_Code]);
+            multi_thread_models[County_Code].start();
+            //County_Return_Datapack returnedpack = Counties[County_Code].Run_Model_with_flux(Export,Import, Local_worker, VaccinationDistribution[County_Code], Age_specific_vaccine_dist_pack);
+            County_Return_Datapack returnedpack = null;
             int Exported_from_county = returnedpack.getExported_cases();
             Weekly_Incidence_Rate_By_County[County_Code] = returnedpack.getIncidence_rate();
 
@@ -141,7 +144,7 @@ public class Province {
             }
         }
         for (int County_code = 0; County_code < Number_of_Counties; County_code++) {
-            Counties[County_code].Run_Modle_Resident( 0, Age_specific_vaccine_dist_pack);
+            Counties[County_code].Run_Model_Resident( 0, Age_specific_vaccine_dist_pack);
         }
     }
 
@@ -154,6 +157,8 @@ public class Province {
 
     public void printToFile(){
 
+        //Directory_Creator.create_dir(Parameters.WritePath + TrailData.getModel_Iteratons()+"/"+TrailData.getTrail_Code() +"/");
+
         for (int County = 0; County < CountyDataIO.Counties.length; County++) {
                 Counties[County].PrintFile(TrailData);
         }
@@ -164,9 +169,9 @@ public class Province {
                 int County_index = CountyDataIO.Code_Index.indexOf(CountyDataIO.Counties_By_District[District].get(County_within_district).getID());
                 District_data[County_within_district] = Counties[County_index].getSeries();
             }
-            FilePrint.Print_by_district_to_one_file(District_data, CountyDataIO.DistrictCodes[District], TrailData);
-            FilePrint.Print_by_district_by_age(District_data, CountyDataIO.DistrictCodes[District], TrailData);
-        }
+                FilePrint.Print_by_district_to_one_file(District_data, CountyDataIO.DistrictCodes[District], TrailData);
+                FilePrint.Print_by_district_by_age(District_data, CountyDataIO.DistrictCodes[District], TrailData);
+            }
 
         CountyDataArray[] Province_Data = new CountyDataArray[CountyDataIO.Counties.length];
 

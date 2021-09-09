@@ -28,9 +28,9 @@ public class Main {
 
         Trail Traildata = new Trail(0,1);
 
-        Thread thread = new Thread();
+        //Thread thread = new Thread();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             Traildata = new Trail(0,i+1);
             Province Ontario = new Province(Traildata);
             for (int day = 0; day < 199; day++) {
@@ -38,7 +38,7 @@ public class Main {
                 Day = day;
                 Ontario.ModelIterator();
             }
-            //Ontario.printToFile();
+            Ontario.printToFile();
             Ontario.printToConsole();
             Ontario.clear();
             System.gc();

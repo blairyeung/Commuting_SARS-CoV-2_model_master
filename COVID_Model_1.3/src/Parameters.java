@@ -11,12 +11,8 @@ public class Parameters {
     static public String PathDefault = "E:/Global Model/Vaccine/";
     static public String ReadPath = "Model IO/";
     static public String WritePath = "Model Output/";
-    static public double Transmissbility[] = {0.025,0.025*1.66};
+    static public double Transmissbility_by_variant[] = {0.025,0.025*1.66,0.025*1.66*1.6};
     static public int DataPackSize = 25;
-
-    static public double[] input2 = {0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625,0.0625};
-    static public double[] input3 = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-
 
     static public int Total_number_of_variants = 2;
 
@@ -127,7 +123,8 @@ public class Parameters {
     static public double[] WorkPlaceReductionbyLevel = {0.7,0.65,0.625,0.4,0.3};
 
     //static public double[] Infectiousness_By_Variant = {0.025,0.0403};
-    static public double[] Infectiousness_By_Variant = {0.075,0.0403};
+    //static public double[] Infectiousness_By_Variant = {0.075,0.0403};
+    static public double[] Infectiousness_By_Variant = {0.25,0.23};
     //static public double[] Infectiousness_By_Variant = {0.275,0.0403};
     static public String[] Name_of_Variant = {"Non-SGTF","SGTF"};
 
