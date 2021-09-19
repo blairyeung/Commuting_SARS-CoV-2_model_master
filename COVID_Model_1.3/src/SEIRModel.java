@@ -92,6 +92,8 @@ public class SEIRModel{
                  * Add cases
                  */
 
+                double Specific_CFR = Parameters.CFR[Patient_Age_Band] * Parameters.CFR_By_Variant[Variant];
+
                 double Age_Band_NewExposed = 0;
                 double Age_Band_NewCases = 0;
                 double Age_Band_NewCritical = 0;
@@ -118,8 +120,8 @@ public class SEIRModel{
                     Age_Band_RemovedCritical = (int) Math.round(SeriesData.getTimeSeries()[Main.Day-14].getDataPackByAge()[Variant][19][Patient_Age_Band] * (Parameters.CriticalRate[Patient_Age_Band]));
                 }
                 if(Main.Day>=15){
-                    Age_Band_NewResolved = Math.round((SeriesData.getTimeSeries()[Main.Day-9].getDataPackByAge()[Variant][19][Patient_Age_Band] * (1.0 - Parameters.CFR[Patient_Age_Band])) - 0.3);
-                    Age_Band_NewDeaths = Math.round(0.3 + (SeriesData.getTimeSeries()[Main.Day-9].getDataPackByAge()[Variant][19][Patient_Age_Band] * Parameters.CFR[Patient_Age_Band]));
+                    Age_Band_NewResolved = Math.round((SeriesData.getTimeSeries()[Main.Day-9].getDataPackByAge()[Variant][19][Patient_Age_Band] * (1.0 - Specific_CFR)) - 0.3);
+                    Age_Band_NewDeaths = Math.round(0.3 + (SeriesData.getTimeSeries()[Main.Day-9].getDataPackByAge()[Variant][19][Patient_Age_Band] * Specific_CFR));
                     Age_Band_RemovedCases = SeriesData.getTimeSeries()[Main.Day-9].getDataPackByAge()[Variant][19][Patient_Age_Band];
                 }
 

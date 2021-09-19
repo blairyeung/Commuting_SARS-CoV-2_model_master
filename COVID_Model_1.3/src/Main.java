@@ -30,16 +30,18 @@ public class Main {
 
         //Thread thread = new Thread();
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             Traildata = new Trail(0,i+1);
             Province Ontario = new Province(Traildata);
+            System.out.print("in progress");
             for (int day = 0; day < 199; day++) {
-                System.out.println("Date: " + day);
+                //System.out.println("Date: " + day);
+                System.out.print("|");
                 Day = day;
                 Ontario.ModelIterator();
             }
             Ontario.printToFile();
-            Ontario.printToConsole();
+            //Ontario.printToConsole();
             Ontario.clear();
             System.gc();
         }

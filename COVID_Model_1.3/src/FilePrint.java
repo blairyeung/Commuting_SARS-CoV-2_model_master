@@ -47,7 +47,7 @@ public class FilePrint {
             e.printStackTrace();
         }
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < DataSeries.getLength(); Date++) {
 
             String A_line = "";
             for (int Index = 0; Index < Parameters.DataPackSize; Index++) {
@@ -110,7 +110,7 @@ public class FilePrint {
                 e.printStackTrace();
             }
 
-            for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+            for (int Date = 0; Date < DataSeries.getLength(); Date++) {
                 //System.out.println(Date);
                 String A_line = "";
                 for (int Index = 0; Index < Parameters.DataPackSize; Index++) {
@@ -169,7 +169,7 @@ public class FilePrint {
             e.printStackTrace();
         }
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < DataSeries.getLength(); Date++) {
             for (int Index = 0; Index < Parameters.DataPackSize; Index++){
                 for (int Age_Band = 0; Age_Band < 16; Age_Band++) {
                     try {
@@ -200,11 +200,11 @@ public class FilePrint {
         
         CountyDataArray bufferpack = new CountyDataArray();
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < District_data[0].getLength(); Date++) {
             for (int county_within = 0; county_within < District_data.length; county_within++) {
                 for (int index = 1; index < Parameters.DataPackSize; index++) {/**DO NOT ADD THE DATE*/
                     bufferpack.getTimeSeries()[Date].addValueDataPack(index, District_data[county_within].getTimeSeries()[Date].getDataPack()[index]);
-                    for (int Variant = 0; Variant < 2; Variant++) {
+                    for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
                         for (int Age_Band = 0; Age_Band < 16; Age_Band++) {
                             bufferpack.getTimeSeries()[Date].addValueDataPackByAge(Variant,Age_Band,index, District_data[county_within].getTimeSeries()[Date].getDataPack()[index]);
                         }
@@ -237,7 +237,7 @@ public class FilePrint {
             e.printStackTrace();
         }
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < District_data[0].getLength(); Date++) {
 
             String A_line = "";
             for (int Index = 0; Index < Parameters.DataPackSize; Index++) {
@@ -262,17 +262,17 @@ public class FilePrint {
         String Common_Path = Parameters.WritePath;
         Common_Path += "Iteration " + trail.getModel_Iteratons() + "\\" + "Trail " + trail.getTrail_Code() + "\\Stratified\\By_District\\";
         String FolderPath = Common_Path + "Ontario" + "\\By_Age\\";
-        //Directory_Creator.create_dir(FolderPath);
+        Directory_Creator.create_dir(FolderPath);
         String File_Path = Common_Path + "Ontario" + ".csv";
         System.out.println(File_Path);
 
         CountyDataArray bufferpack = new CountyDataArray();
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < District_data[0].getLength(); Date++) {
             for (int county_within = 0; county_within < District_data.length; county_within++) {
                 for (int index = 1; index < Parameters.DataPackSize; index++) {/**DO NOT ADD THE DATE AND POPULATION*/
                     bufferpack.getTimeSeries()[Date].addValueDataPack(index, District_data[county_within].getTimeSeries()[Date].getDataPack()[index]);
-                    for (int Variant = 0; Variant < 2; Variant++) {
+                    for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
                         for (int Age_Band = 0; Age_Band < 16; Age_Band++) {
                             bufferpack.getTimeSeries()[Date].addValueDataPackByAge(Variant,Age_Band,index, District_data[county_within].getTimeSeries()[Date].getDataPack()[index]);
                         }
@@ -305,7 +305,7 @@ public class FilePrint {
             e.printStackTrace();
         }
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < District_data[0].getLength(); Date++) {
 
             String A_line = "";
             for (int Index = 0; Index < Parameters.DataPackSize; Index++) {
@@ -336,11 +336,11 @@ public class FilePrint {
 
         CountyDataArray bufferpack = new CountyDataArray();
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < District_data[0].getLength(); Date++) {
             for (int county_within = 0; county_within < District_data.length; county_within++) {
                 for (int index = 1; index < Parameters.DataPackSize; index++) {
                     bufferpack.getTimeSeries()[Date].addValueDataPack(index, District_data[county_within].getTimeSeries()[Date].getDataPack()[index]);
-                    for (int Variant = 0; Variant < 2; Variant++) {
+                    for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
                         for (int Age_Band = 0; Age_Band < 16; Age_Band++) {
                             bufferpack.getTimeSeries()[Date].addValueDataPackByAge(Variant, Age_Band, index, District_data[county_within].getTimeSeries()[Date].getDataPackByAge()[Variant][index][Age_Band]);
                         }
@@ -380,7 +380,7 @@ public class FilePrint {
                 e.printStackTrace();
             }
 
-            for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+            for (int Date = 0; Date < District_data[0].getLength(); Date++) {
                 String A_line = "";
                 for (int Index = 0; Index < Parameters.DataPackSize; Index++) {
                     A_line += (bufferpack.getTimeSeries()[Date].getDataPackByAge()[0][Index][Age_Band] + bufferpack.getTimeSeries()[Date].getDataPackByAge()[1][Index][Age_Band]) + ",";
@@ -412,11 +412,11 @@ public class FilePrint {
 
         CountyDataArray bufferpack = new CountyDataArray();
 
-        for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+        for (int Date = 0; Date < District_data[0].getLength(); Date++) {
             for (int county_within = 0; county_within < District_data.length; county_within++) {
                 for (int index = 2; index < Parameters.DataPackSize; index++) {
                     bufferpack.getTimeSeries()[Date].addValueDataPack(index, District_data[county_within].getTimeSeries()[Date].getDataPack()[index]);
-                    for (int Variant = 0; Variant < 2; Variant++) {
+                    for (int Variant = 0; Variant < Parameters.Total_number_of_variants; Variant++) {
                         for (int Age_Band = 0; Age_Band < 16; Age_Band++) {
                             bufferpack.getTimeSeries()[Date].addValueDataPackByAge(Variant, Age_Band, index, District_data[county_within].getTimeSeries()[Date].getDataPackByAge()[Variant][index][Age_Band]);
                         }
@@ -457,7 +457,7 @@ public class FilePrint {
                 e.printStackTrace();
             }
 
-            for (int Date = 0; Date < Parameters.Observation_Range; Date++) {
+            for (int Date = 0; Date < District_data[0].getLength(); Date++) {
                 String A_line = "";
                 for (int Index = 0; Index < Parameters.DataPackSize; Index++) {
                     A_line += (bufferpack.getTimeSeries()[Date].getDataPackByAge()[0][Index][Age_Band] + bufferpack.getTimeSeries()[Date].getDataPackByAge()[1][Index][Age_Band]) + ",";

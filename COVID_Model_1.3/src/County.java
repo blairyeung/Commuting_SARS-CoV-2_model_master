@@ -25,7 +25,7 @@ public class County extends Thread{
         this.Population = Population;
         this.County_Index = Code;
         County_Data = new Data(Population);
-        Series = new CountyDataArray(CountyDataIO.Counties[Code].getName());
+        Series = new CountyDataArray(CountyDataIO.Counties[Code].getName(),Parameters.Observation_Range);
         Series.setDataWithinSeries(Main.Day, County_Data);
     }
 
@@ -42,7 +42,7 @@ public class County extends Thread{
         this.County_Index = Code;
         this.Past_series = Past_series;
         County_Data = new Data(Population);
-        Series = new CountyDataArray(CountyDataIO.Counties[Code].getName());
+        Series = new CountyDataArray(CountyDataIO.Counties[Code].getName(), Parameters.Observation_Range);
         Series.setDataWithinSeries(Main.Day, County_Data);
     }
 
@@ -58,7 +58,7 @@ public class County extends Thread{
 
         else{
             County_Data = new Data(Population);
-            Series = new CountyDataArray(CountyDataIO.Counties[County_Index].getName());
+            Series = new CountyDataArray(CountyDataIO.Counties[County_Index].getName(), Parameters.Observation_Range);
             Series.setDataWithinSeries(Main.Day, County_Data);
         }
 
@@ -179,11 +179,16 @@ public class County extends Thread{
 
     public void PrintFile(Trail TrailData){
         System.out.println(County_Index);
-        FilePrint.Print_all(Series, TrailData, County_Index);
+        FilePrint.Print_all(Past_series, TrailData, County_Index);
+        //FilePrint.Print_all(Series, TrailData, County_Index);
     }
 
     public CountyDataArray getSeries() {
-        return Series;
+        return Past_series;
+    }
+
+    public CountyDataArray getPast_series() {
+        return Past_series;
     }
 
     public int getCounty_Index() {

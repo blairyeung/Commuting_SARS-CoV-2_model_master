@@ -124,9 +124,11 @@ public class Parameters {
 
     //static public double[] Infectiousness_By_Variant = {0.025,0.0403};
     //static public double[] Infectiousness_By_Variant = {0.075,0.0403};
-    static public double[] Infectiousness_By_Variant = {0.25,0.23};
-    //static public double[] Infectiousness_By_Variant = {0.275,0.0403};
-    static public String[] Name_of_Variant = {"Non-SGTF","SGTF"};
+    //static public double[] Infectiousness_By_Variant = {0.25,0.23};
+
+    static public double[] Infectiousness_By_Variant = {0.275,0.275*1.66,0.275*1.66*1.5};
+    static public double[] CFR_By_Variant = {1,1.66,0.9};
+    static public String[] Name_of_Variant = {"Original","Alpha","Delta","Lambda","Mu"};
 
     /**
      * Adjustable bias

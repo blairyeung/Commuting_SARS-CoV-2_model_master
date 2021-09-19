@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,6 +55,9 @@ public class Ontario_past_data_IO {
         Incidence_data_IO();
         Calculated_age_band_ratio();
         to_County();
+        System.out.println("Ontario_past_data_IO complete!");
+        Ontario_cumulative();
+        Print_past_data();
 
     }
 
@@ -253,8 +253,10 @@ public class Ontario_past_data_IO {
 
         Ontario_past_data_array = new CountyDataArray[CountyDataIO.Counties.length];
 
+        int size = Date_index.size();
+
         for (int County_Code = 0; County_Code < CountyDataIO.Counties.length; County_Code++) {
-            Ontario_past_data_array[County_Code] = new CountyDataArray();
+            Ontario_past_data_array[County_Code] = new CountyDataArray(size);
             for (int date = 0; date < Date_index.size(); date++) {
                 Data_from_file today_data = Ontario_data.get(date);
                 CountyData data = CountyDataIO.Counties[County_Code];
@@ -285,6 +287,9 @@ public class Ontario_past_data_IO {
                         today_county_data.setValueDataPackByAge(variant,Age_band,24,((int) Math.round(Vaccinated_two_dose_age_band)));//Set vaccinated two dose
                     }
                 }
+
+                ConsolePrint.PrintCountyInformation(today_county_data);
+
                 today_county_data.reCalculate();
                 Ontario_past_data_array[County_Code].bindTimeSeries(today_county_data);
             }
@@ -354,5 +359,72 @@ public class Ontario_past_data_IO {
 
         }
         return new double[2];
+    }
+
+    public static void calculate_cumulative(CountyDataArray input){
+        /**
+         * Find cumulative from daily
+         */
+        Data data = input.getTimeSeries()[0];
+
+        for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
+            for (int Age_band = 0; Age_band < Parameters.AgeBand.length; Age_band++) {
+                data.setValueDataPackByAge(variant,Age_band,2,((int) Math.round(data.getDataPackByAge()[variant][17][Age_band])));//Set incidence
+                data.setValueDataPackByAge(variant,Age_band,3,((int) Math.round(data.getDataPackByAge()[variant][18][Age_band])));//Set exposed
+                data.setValueDataPackByAge(variant,Age_band,4,((int) Math.round(data.getDataPackByAge()[variant][19][Age_band])));//Set active cases
+                data.setValueDataPackByAge(variant,Age_band,6,((int) Math.round(data.getDataPackByAge()[variant][20][Age_band])));//Set resolved
+                data.setValueDataPackByAge(variant,Age_band,7,((int) Math.round(data.getDataPackByAge()[variant][22][Age_band])));//Set deaths
+                data.setValueDataPackByAge(variant,Age_band,8,((int) Math.round(data.getDataPackByAge()[variant][23][Age_band])));//Set vaccinated one dose
+                data.addValueDataPackByAge(variant,Age_band,8,((int) Math.round(data.getDataPackByAge()[variant][24][Age_band])));//Set vaccinated two dose
+            }
+        }
+        data.reCalculate();
+
+        for (int date = 1; date < input.getLength(); date++) {
+            data = input.getTimeSeries()[date];
+            Data yesterday_data = input.getTimeSeries()[date-1];
+
+            for (int variant = 0; variant < Parameters.Total_number_of_variants; variant++) {
+                for (int Age_band = 0; Age_band < Parameters.AgeBand.length; Age_band++) {
+                    data.setValueDataPackByAge(variant,Age_band,2,((int) Math.round(data.getDataPackByAge()[variant][17][Age_band])));//Set incidence
+                    data.setValueDataPackByAge(variant,Age_band,3,((int) Math.round(data.getDataPackByAge()[variant][18][Age_band])));//Set exposed
+                    data.setValueDataPackByAge(variant,Age_band,4,((int) Math.round(data.getDataPackByAge()[variant][19][Age_band])));//Set active cases
+                    data.setValueDataPackByAge(variant,Age_band,6,((int) Math.round(data.getDataPackByAge()[variant][20][Age_band])));//Set resolved
+                    data.setValueDataPackByAge(variant,Age_band,7,((int) Math.round(data.getDataPackByAge()[variant][22][Age_band])));//Set deaths
+                    data.setValueDataPackByAge(variant,Age_band,8,((int) Math.round(data.getDataPackByAge()[variant][23][Age_band])));//Set vaccinated one dose
+                    data.addValueDataPackByAge(variant,Age_band,8,((int) Math.round(data.getDataPackByAge()[variant][24][Age_band])));//Set vaccinated two dose
+
+                    data.setValueDataPackByAge(variant,Age_band,2,((int) Math.round(yesterday_data.getDataPackByAge()[variant][2][Age_band])));//Set incidence
+                    data.setValueDataPackByAge(variant,Age_band,3,((int) Math.round(yesterday_data.getDataPackByAge()[variant][3][Age_band])));//Set exposed
+                    data.setValueDataPackByAge(variant,Age_band,4,((int) Math.round(yesterday_data.getDataPackByAge()[variant][4][Age_band])));//Set active cases
+                    data.setValueDataPackByAge(variant,Age_band,6,((int) Math.round(yesterday_data.getDataPackByAge()[variant][6][Age_band])));//Set resolved
+                    data.setValueDataPackByAge(variant,Age_band,7,((int) Math.round(yesterday_data.getDataPackByAge()[variant][7][Age_band])));//Set deaths
+                    data.setValueDataPackByAge(variant,Age_band,8,((int) Math.round(yesterday_data.getDataPackByAge()[variant][8][Age_band])));//Set vaccinated one dose
+                    data.addValueDataPackByAge(variant,Age_band,8,((int) Math.round(yesterday_data.getDataPackByAge()[variant][8][Age_band])));//Set vaccinated two dose
+                }
+            }
+            data.reCalculate();
+            if(date==120){
+                ConsolePrint.PrintCountyInformation(data);
+            }
+
+        }
+
+
+    }
+
+    public static void Ontario_cumulative(){
+        for (int i = 0; i < Ontario_past_data_array.length; i++) {
+            calculate_cumulative(Ontario_past_data_array[i]);
+        }
+
+    }
+
+    public static void Print_past_data(){
+        for (int i = 0; i < Ontario_past_data_array.length; i++) {
+            County c = new County(0,i,Ontario_past_data_array[i]);
+            c.PrintFile(new Trail(0,0));
+        }
+
     }
 }
